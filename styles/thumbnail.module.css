@@ -1,0 +1,72 @@
+.wrapper {
+  padding: 0.5rem;
+}
+
+.overview {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  max-width: 768px;
+}
+
+.thumbnail {
+  cursor: pointer;
+  padding: 0.5rem;
+  /* ease-in-out transition */
+  transition-property: all;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  transition-duration: 200ms;
+  /* transform */
+  --tw-translate-x: 0;
+  --tw-translate-y: 0;
+  --tw-rotate: 0;
+  --tw-skew-x: 0;
+  --tw-skew-y: 0;
+  --tw-scale-x: 1;
+  --tw-scale-y: 1;
+  transform: translateX(var(--tw-translate-x)) translateY(var(--tw-translate-y))
+    rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y))
+    scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
+}
+
+@media (min-width: 640px) {
+  .thumbnail:hover {
+    z-index: 50;
+    --tw-scale-x: 1.05;
+    --tw-scale-y: 1.05;
+  }
+}
+
+.thumbnail:hover {
+}
+
+.thumbnail:hover .vote {
+  opacity: 100;
+}
+
+.thumbnail:hover .title {
+  font-weight: 700;
+}
+
+.title {
+  font-weight: 400;
+  margin-top: 0.25rem;
+  font-size: 1.5rem;
+  line-height: 2rem;
+  color: white;
+  transition-property: all;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  transition-duration: 100ms;
+}
+
+.thumbIcon {
+  margin-left: 0.5rem;
+  margin-right: 0.5rem;
+  height: 1.25rem;
+}
+
+.vote {
+  display: flex;
+  align-items: center;
+  opacity: 0;
+}

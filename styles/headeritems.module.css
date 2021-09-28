@@ -1,0 +1,45 @@
+.headericon {
+  height: 2rem;
+}
+
+.headeritems {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  width: 3rem;
+}
+
+.headertitle {
+  opacity: 0;
+  letter-spacing: 0.1em;
+  margin-bottom: 0.25rem;
+}
+
+.headeritems:hover .headertitle {
+  opacity: 100;
+  color: white;
+}
+
+@keyframes bounce {
+  0%,
+  100% {
+    transform: translateY(-25%);
+    animation-timing-function: cubic-bezier(0.8, 0, 1, 1);
+  }
+  50% {
+    transform: translateY(0);
+    animation-timing-function: cubic-bezier(0, 0, 0.2, 1);
+  }
+}
+
+.headeritems:hover .headericon {
+  animation: bounce 1s infinite;
+}
+
+@media (min-width: 640px) {
+  .headeritems {
+    width: 5rem;
+  }
+}

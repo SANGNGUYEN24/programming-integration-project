@@ -1,0 +1,67 @@
+.navwrap {
+  display: flex;
+  white-space: nowrap;
+  padding: 0 2.5rem;
+  font-size: 1.5rem;
+  line-height: 2rem;
+  overflow-x: scroll;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+
+.navwrap::-webkit-scrollbar {
+  display: none;
+}
+
+.navitem {
+  font-weight: normal;
+  transition: all;
+  transition-duration: 100ms;
+  cursor: pointer;
+  --tw-space-x-reverse: 0;
+  margin-right: calc(2.5rem * var(--tw-space-x-reverse));
+  margin-left: calc(2.5rem * calc(1 - var(--tw-space-x-reverse)));
+  margin-bottom: 1rem;
+}
+
+.navitem:last-child {
+  padding-right: 6rem;
+}
+
+@media (min-width: 640px) {
+  .navwrap {
+    padding: 0 5rem;
+  }
+
+  .navitem {
+    margin-right: calc(5rem * var(--tw-space-x-reverse));
+    margin-left: calc(5rem * calc(1 - var(--tw-space-x-reverse)));
+  }
+}
+
+.navitem:hover {
+  --tw-translate-x: 0;
+  --tw-translate-y: 0;
+  --tw-rotate: 0;
+  --tw-skew-x: 0;
+  --tw-skew-y: 0;
+  --tw-scale-x: 1.25;
+  --tw-scale-y: 1.25;
+  transform: translateX(var(--tw-translate-x)) translateY(var(--tw-translate-y))
+    rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y))
+    scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
+  color: white;
+}
+
+.navitem:active {
+  color: #ef4444;
+}
+
+.faded {
+  position: absolute;
+  top: 0;
+  right: 0;
+  background-image: linear-gradient(to left, #06202a, rgba(6, 32, 42, 0.3));
+  height: 2.5rem;
+  width: 2rem;
+}

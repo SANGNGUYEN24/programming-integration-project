@@ -1,0 +1,26 @@
+.header {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  margin: 1.25rem;
+  align-items: center;
+  height: auto;
+}
+
+.headerwrap {
+  display: flex;
+  flex-grow: 1;
+  flex-direction: row;
+  justify-content: space-evenly;
+  max-width: 1024px;
+}
+
+.headerlogo {
+  object-fit: contain;
+}
+
+@media (min-width: 640px) {
+  .header {
+    flex-direction: row;
+  }
+}
