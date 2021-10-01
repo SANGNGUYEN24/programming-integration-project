@@ -5,3 +5,5 @@ function MyApp({ Component, pageProps }) {
 }
 
 export default MyApp
+
+// comment fro hulu clone
