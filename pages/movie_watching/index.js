@@ -10,7 +10,7 @@ export default function Home() {
       <div className={youtube.playerContainer}>
         <iframe
           className={youtube.player}
-          src="https://www.youtube.com/embed/uC9qU3X1JgM"
+          src="https://www.youtube.com/embed/9jZ01i92JI8"
           frameborder="0"
           allow="autoplay; encrypted-media"
           allowfullscreen
