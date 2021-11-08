@@ -1,10 +1,9 @@
-
-import React from 'react';
-import ReactDOM from 'react-dom'; 
+import React from "react";
+import ReactDOM from "react-dom";
 import Image from "next/image";
 
-import Moive from '../../components/Movie';
-import Header  from '../../components/Header';
+import Moive from "../../components/Movie";
+import Header from "../../components/Header";
 // export default function Home() {
 //     <h1>Hello</h1>
 // }
@@ -13,13 +12,14 @@ import Header  from '../../components/Header';
 //     <div>hello khhoa</div>
 // )}
 
- function P(){
-    return (
-        <div>
-            <Moive/>
-        </div>
-    )
-  }
+function P() {
+  return (
+    <div>
+      <Header />
+      <Moive />
+    </div>
+  );
+}
 
-  export default P;
+export default P;
 // export default p;
