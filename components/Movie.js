@@ -1,5 +1,6 @@
 import styles from "../styles/movie.module.css";
 import Image from "next/image";
+import Link from "next/link";
 
 function Moive() {
   return (
@@ -9,7 +10,11 @@ function Moive() {
         {/* phan poster */}
         <div className={styles.poster}>
           <img className={styles.img} src="/poster.jpg" />
-          <button className={styles.btn}>Xem phim ngay</button>
+          <Link href="/details/movie">
+            <a style={{ textDecoration: "none" }}>
+              <button className={styles.btn}>Xem phim ngay</button>
+            </a>
+          </Link>
         </div>
         {/* phan information */}
         <div className={styles.info}>
@@ -49,13 +54,13 @@ function Moive() {
           <div className={styles.section}>
             <p className={styles.sectionTitle}>Diễn Viên</p>
             <div className={styles.list}>
-            <div className={styles.content}>
+              <div className={styles.content}>
                 <img
                   className={styles.actorImg}
                   src="https://dummyimage.com/400x400"
                 />
                 <p className={styles.actorName}> Daniel Radcliffe</p>
-                <p className={styles.subName}> Harry Potter   </p>
+                <p className={styles.subName}> Harry Potter </p>
               </div>
               <div className={styles.content}>
                 <img
@@ -76,18 +81,18 @@ function Moive() {
             </div>
           </div>
 
-           {/* List Movie */}
+          {/* List Movie */}
 
-           <div className={styles.section}>
+          <div className={styles.section}>
             <p className={styles.sectionTitle}>Phim tương tự</p>
             <div className={styles.list}>
-            <div className={styles.content}>
+              <div className={styles.content}>
                 <img
                   className={styles.movieImg}
                   src="https://dummyimage.com/400x400"
                 />
                 <p className={styles.MoiveName}> HP Chap1</p>
-                <p className={styles.subName}> 2018  </p>
+                <p className={styles.subName}> 2018 </p>
               </div>
               <div className={styles.content}>
                 <img
@@ -95,7 +100,7 @@ function Moive() {
                   src="https://dummyimage.com/400x400"
                 />
                 <p className={styles.MoiveName}> HP Chap1</p>
-                <p className={styles.subName}> 2018  </p>
+                <p className={styles.subName}> 2018 </p>
               </div>
               <div className={styles.content}>
                 <img
@@ -103,8 +108,7 @@ function Moive() {
                   src="https://dummyimage.com/400x400"
                 />
                 <p className={styles.MoiveName}> HP Chap1</p>
-                <p className={styles.subName}> 2018  </p>
-               
+                <p className={styles.subName}> 2018 </p>
               </div>
             </div>
           </div>

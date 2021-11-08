@@ -1,8 +1,10 @@
 import classes from "./MoviePlaying.module.scss";
+import Header from "../Header";
 
 export default function MoviePlaying() {
   return (
     <div className={classes.SectionWrapper}>
+      <Header/>
       <div className={classes.playerContainer}>
         <iframe
           className={classes.player}

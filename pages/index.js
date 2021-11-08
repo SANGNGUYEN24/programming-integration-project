@@ -3,10 +3,6 @@ import Header from "../components/Header";
 import Nav from "../components/Nav";
 import Results from "../components/Results";
 import requests from "../utils/requests";
-import MoviePlaying from "../components/MoviePlaying/MoviePlaying";
-import MovieDescription from "../components/MovieDescription/MovieDescription";
-import MovieRalated from "../components/MovieRelated/MovieRelated";
-
 
 export async function getServerSideProps(context) {
   const genre = context.query.genre;
@@ -36,22 +32,9 @@ export default function Home({ results }) {
       <Header />
       <Nav />
 
-         <Results results={results.results} />
-     </div>
+      <Results results={results.results} />
+    </div>
     //   );
     // }
-  )
-
-  const Home = () => {
-    return (
-      <>
-        {/* <Header /> */}
-        <MoviePlaying />
-        <MovieDescription />
-        <MovieRalated />
-      </>
-    );
-  };
+  );
 }
-
-export default Home;
