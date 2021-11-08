@@ -9,12 +9,17 @@ import {
 import HeaderItems from "./HeaderItems";
 import styled from "../styles/header.module.css";
 import Image from "next/image";
+import Link from "next/link";
 
 function Header() {
   return (
     <header className={styled.header}>
       <div className={styled.headerwrap}>
-        <HeaderItems title="HOME" Icon={HomeIcon} />
+        <Link href="/">
+          <a>
+            <HeaderItems title="HOME" Icon={HomeIcon} />
+          </a>
+        </Link>
         <HeaderItems title="VERIFIED" Icon={BadgeCheckIcon} />
         <HeaderItems title="COLLECTIONS" Icon={CollectionIcon} />
         <HeaderItems title="TRENDING" Icon={LightningBoltIcon} />
