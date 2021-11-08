@@ -1,0 +1,35 @@
+@import "../responsive.scss";
+
+.SectionWrapper {
+  margin: 0 auto;
+  width: 100%;
+  padding: 0 15px;
+  transition: all 0.5s cubic-bezier(0.55, 0, 0.1, 1);
+
+  @include tablet {
+    width: 85%;
+  }
+
+  @include laptop {
+    width: 70%;
+  }
+
+  @include desktop {
+    width: 1180px;
+  }
+
+  .playerContainer {
+    position: relative;
+    overflow: hidden;
+    width: 100%;
+    padding-top: 56.25%;
+  }
+
+  .player {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+  }
+}

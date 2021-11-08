@@ -1,0 +1,196 @@
+@import "../responsive.scss";
+
+.SectionContainer {
+  margin: 0 auto;
+  width: 100%;
+  padding: 0 15px;
+  transition: all 0.5s cubic-bezier(0.55, 0, 0.1, 1);
+
+  @include tablet {
+    width: 85%;
+  }
+
+  @include laptop {
+    width: 70%;
+  }
+
+  @include desktop {
+    width: 1180px;
+    display: flex;
+    align-items: flex-start;
+  }
+
+  .LeftIntro {
+    margin-top: 30px;
+    padding: 0 10px;
+
+    @include tablet {
+      display: flex;
+    }
+
+    @include desktop {
+      flex-basis: 66.6666666667%;
+    }
+
+    .Col1 {
+      display: none;
+      @include tablet {
+        flex-basis: 33.3333333333%;
+        display: block;
+      }
+    }
+
+    .Col2 {
+      @include tablet {
+        flex-basis: 66.6666666667%;
+        margin-left: 30px;
+      }
+      .FilmTitle {
+        margin-bottom: 10px;
+
+        h4 {
+          font-size: 22px;
+          margin-bottom: 5px;
+          line-height: 1.2em;
+          color: #fff;
+        }
+
+        h5 {
+          font-size: 18px;
+          color: #9b9b9b;
+          margin-bottom: 5px;
+          font-weight: 400;
+        }
+      }
+
+      .UserAction {
+        margin-bottom: 20px;
+
+        .ListInline {
+          display: flex;
+          align-items: center;
+          padding-left: 0;
+          list-style: none;
+          margin: 0 -3px;
+
+          .FollowBtn {
+            width: 33.333%;
+            padding: 0 3px;
+            margin: 0 -0.125em;
+            cursor: pointer;
+
+            a {
+              width: 100%;
+              height: 36px;
+              background: linear-gradient(90deg, #252728 0, #3f4143);
+              border-radius: 5px;
+              text-decoration: none;
+              display: flex;
+              align-items: center;
+              justify-content: center;
+
+              span {
+                display: flex;
+                align-items: center;
+                height: 100%;
+              }
+
+              p {
+                margin-left: 5px;
+                color: #fff;
+                font-size: 13px;
+                line-height: 36px;
+                letter-spacing: 0.5px;
+
+                @include desktop {
+                  font-size: 15px;
+                }
+              }
+            }
+          }
+
+          .ShareBtn {
+            width: 33.333%;
+            padding: 0 3px;
+            margin: 0 10px;
+            cursor: pointer;
+
+            a {
+              width: 100%;
+              height: 36px;
+              background: #ff6500;
+              border-radius: 5px;
+              text-decoration: none;
+              display: flex;
+              align-items: center;
+              justify-content: center;
+
+              span {
+                display: flex;
+                align-items: center;
+                height: 100%;
+              }
+
+              p {
+                margin-left: 5px;
+                color: #fff;
+                font-size: 14px;
+                line-height: 36px;
+                letter-spacing: 0.5px;
+
+                @include desktop {
+                  font-size: 15px;
+                }
+              }
+            }
+          }
+        }
+      }
+
+      .FilmDesc {
+        span {
+          display: inline-block;
+          font-weight: bold;
+          color: #fff;
+          margin-bottom: 10px;
+        }
+        p {
+          line-height: 1.5em;
+          text-align: justify;
+          color: #9b9b9b;
+        }
+      }
+    }
+  }
+
+  .RightIntro {
+    margin-top: 30px;
+    padding: 0 10px;
+
+    @include desktop {
+      flex-basis: 33.3333333333%;
+      margin-left: 10px;
+    }
+
+    .TableDescription {
+      table {
+        width: 100%;
+        display: table;
+
+        tr {
+          td:first-child {
+            width: 100px;
+            font-weight: bold;
+            color: #fff;
+          }
+          td {
+            padding: 0;
+            padding-top: 3px;
+            padding-bottom: 3px;
+            vertical-align: top;
+          }
+        }
+      }
+    }
+  }
+}
