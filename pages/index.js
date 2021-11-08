@@ -6,7 +6,6 @@ import requests from "../utils/requests";
 
 export async function getServerSideProps(context) {
   const genre = context.query.genre;
-
   const results = await fetch(
     `https://api.themoviedb.org/3${
       requests[genre]?.url || requests.fetchingTrending.url
@@ -31,7 +30,6 @@ export default function Home({ results }) {
       </Head>
 
       <Header />
-
       <Nav />
 
       <Results results={results.results} />
