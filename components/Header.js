@@ -10,6 +10,7 @@ import HeaderItems from "./HeaderItems";
 import styled from "../styles/header.module.css";
 import Image from "next/image";
 import Link from "next/link";
+import logo from "../public/pip-logo.png";
 
 function Header() {
   return (
@@ -32,7 +33,7 @@ function Header() {
       </div>
 
       <Image
-        src="https://links.papareact.com/ua6"
+        src={logo}
         width="200"
         height="100"
         className={styled.headerlogo}
