@@ -23,7 +23,11 @@ function Header() {
         <HeaderItems title="VERIFIED" Icon={BadgeCheckIcon} />
         <HeaderItems title="COLLECTIONS" Icon={CollectionIcon} />
         <HeaderItems title="TRENDING" Icon={LightningBoltIcon} />
-        <HeaderItems title="SEARCH" Icon={SearchIcon} />
+        <Link href="/search">
+          <a>
+            <HeaderItems title="SEARCH" Icon={SearchIcon} />
+          </a>
+        </Link>
         <HeaderItems title="USER" Icon={UserIcon} />
       </div>
 

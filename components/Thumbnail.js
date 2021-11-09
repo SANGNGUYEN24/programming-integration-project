@@ -1,13 +1,12 @@
 import Image from "next/image";
 import style from "../styles/thumbnail.module.css";
 import { ThumbUpIcon } from "@heroicons/react/outline";
-import { forwardRef } from "react";
 
-const Thumbnail = forwardRef(({ results }, ref) => {
+const Thumbnail = ({ results }) => {
   const BASE_URL = "https://image.tmdb.org/t/p/original";
 
   return (
-    <div ref={ref} className={style.thumbnail}>
+    <div className={style.thumbnail}>
       <Image
         layout="responsive"
         src={
@@ -31,7 +30,7 @@ const Thumbnail = forwardRef(({ results }, ref) => {
       </div>
     </div>
   );
-});
+};
 
 Thumbnail.displayName = "Thumbnail";
 

@@ -1,0 +1,83 @@
+@import "../responsive.scss";
+
+.SearchWrapper {
+  padding: 3rem 0.8rem;
+}
+
+.Container {
+  margin: 0 auto;
+  position: relative;
+
+  @include laptop {
+    max-width: 960px;
+  }
+}
+
+.SearchBar {
+  color: rgba(31, 41, 55, 1);
+  font-size: 1.25rem;
+  background-color: #fff;
+  border-color: #dbdbdb;
+  border-radius: 4px;
+  margin-top: 1px;
+  height: 2.5em;
+  line-height: 1.5;
+  padding: calc(0.5em - 1px) calc(0.75em - 1px);
+  width: 100%;
+  border: 2px solid transparent;
+  transition: border-color 0.15s;
+}
+
+.SearchBar::placeholder {
+  color: rgba(209, 213, 219, 1);
+}
+
+.SearchBar:focus {
+  outline-offset: 0;
+  outline-style: none;
+  outline: none;
+  border-color: rgba(96, 165, 250, 1) !important;
+}
+
+.CardWrapper {
+  display: flex;
+  flex-wrap: wrap;
+  margin-left: calc(-1 * 1rem);
+  margin-right: calc(-1 * 1rem);
+}
+
+.Card {
+  padding: 0.75rem 1rem;
+  flex: none;
+  width: 50%;
+
+  @include tablet {
+    width: 33.3333%;
+  }
+
+  @include laptop {
+    width: 25%;
+  }
+}
+
+.Image {
+  cursor: pointer;
+}
+
+.name {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  color: #dbdbdb;
+  font-size: 100%;
+  font-weight: 400;
+}
+
+.desc {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  font-size: 100%;
+  font-weight: 400;
+  color: #7a7a7a;
+}

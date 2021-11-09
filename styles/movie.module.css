@@ -1,168 +1,166 @@
-.container{
-    z-index:0;
-    position:relative;
-    width:100%;
-    height:90vh;
-    display:flex;
-    justify-content:center;
+.container {
+  z-index: 0;
+  position: relative;
+  width: 100%;
+  height: 90vh;
+  display: flex;
+  justify-content: center;
 }
-.container .bgimg{
-    width:100%;
-    height:80vh;
-    opacity:0.5;
-   
-    object-fit: cover;
+.container .bgimg {
+  width: 100%;
+  height: 80vh;
+  opacity: 0.5;
+  object-fit: cover;
 }
-.detail{
-    top:11rem;
-    width:90%;
-    padding:1rem 4rem;
-    margin:auto;
-    height:auto;
-    position:absolute;
-    /* border:1px solid white; */
-    display:flex;
-    flex-flow:col nowrap;
-    justify-content:space-between;
+.detail {
+  top: 11rem;
+  width: 90%;
+  padding: 1rem 4rem;
+  margin: auto;
+  height: auto;
+  position: absolute;
+  /* border:1px solid white; */
+  display: flex;
+  flex-flow: col nowrap;
+  justify-content: space-between;
 }
-.detail .poster{
-    display:flex;
-    flex-flow:column nowrap;
-    justify-content:start;
-    width:24%;
+.detail .poster {
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: flex-start;
+  width: 24%;
 }
-.detail .poster .img{
-    margin-bottom:1rem;
+.detail .poster .img {
+  margin-bottom: 1rem;
 }
-.detail .btn{
-    font-weight:bold;
-    font-size:12px;
-    cursor: pointer;
-    width: 100%;
-    color:white;
-    padding-top:4px;
-    height:3rem;
-    background-color:#E53D30;
-    border-radius:4px;
+.detail .btn {
+  font-weight: bold;
+  font-size: 12px;
+  cursor: pointer;
+  width: 100%;
+  color: white;
+  padding-top: 4px;
+  height: 3rem;
+  background-color: #e53d30;
+  border-radius: 4px;
 }
-.detail .btn:hover{
-    filter:brightness(110%);
+.detail .btn:hover {
+  filter: brightness(110%);
 }
-.info{
-    width:70%;
-    height:auto;
-    display:flex;
-    flex-flow:column nowrap;
-    justify-content:start;
+.info {
+  width: 70%;
+  height: auto;
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: flex-start;
 }
-.detail .info h1{
-    color:white;
-    font-weight:bold;
-    margin-bottom:1rem;
-    background: -webkit-linear-gradient(yellow, #289cb4);
+.detail .info h1 {
+  color: white;
+  font-weight: bold;
+  margin-bottom: 1rem;
+  background: -webkit-linear-gradient(yellow, #289cb4);
+  background-clip: text;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
-.detail .info h2{
-    color:white;
-    font-weight:medium;
-    opacity:0.8;
-    margin-bottom:0.5rem;
+.detail .info h2 {
+  color: white;
+  font-weight: medium;
+  opacity: 0.8;
+  margin-bottom: 0.5rem;
 }
-.detail .info h3{
-    font-size:1rem;
-    color:white;
-    font-weight:medium;
-    opacity:0.8;
-    margin-bottom:2rem;
+.detail .info h3 {
+  font-size: 1rem;
+  color: white;
+  font-weight: medium;
+  opacity: 0.8;
+  margin-bottom: 2rem;
 }
 
 .detail .info .cate {
-    display:flex;
-    flex-flow:row nowrap;
-    justify-content:start;
-    align-item:center;
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: flex-start;
+  align-items: center;
 }
-.detail .info .cate .tag{
-    border:white;
-    border-radius:4px;
-    height:2.5rem;
-    width:6rem;
-    padding:8px;
-    text-align:center;
-    border:2px solid;
-    margin-right:1rem;
-    margin-bottom:2rem;
+.detail .info .cate .tag {
+  border: white;
+  border-radius: 4px;
+  height: 2.5rem;
+  width: 6rem;
+  padding: 8px;
+  text-align: center;
+  border: 2px solid;
+  margin-right: 1rem;
+  margin-bottom: 2rem;
 }
-.detail .info .cate .tag:hover{
-    background-color:#4750E5;
-    color:white;
-}
-
-
-.detail .info .originName{
-    color:white;
-    margin-bottom:8px;
-}
-.detail .info .descript{
-    color:white;
-    margin-bottom:1rem;
-}
-.detail .info .descript span{
-    font-size:1.5rem;
-    font-weight:bold;
+.detail .info .cate .tag:hover {
+  background-color: #4750e5;
+  color: white;
 }
 
-.detail .info .list .content{
-    margin-right:2rem;
-    display:flex;
-    width:10rem;
-    height:auto;
-    flex-flow:column nowrap;
-    justify-content:start;
-    text-align:center;
-    padding:4px;
+.detail .info .originName {
+  color: white;
+  margin-bottom: 8px;
 }
-.detail .info .list .content .actorImg{
-    margin-left:10px;
-    height:100px;
-    width:100px;
-    object-fit:fit;
-    border-radius: 100%;
-    margin-bottom:0.5rem;
+.detail .info .descript {
+  color: white;
+  margin-bottom: 1rem;
 }
-.detail .info .section .sectionTitle{
-    font-size:1.4rem;
-    font-weight:bold;
-    color:yellow;
-    margin-bottom:0.5rem;
-}
-.detail .info .list{
-    display:flex;
-    flex-flow:row nowrap;
-    justify-content:start;
-    
-}
-.detail .info .list .content .actorName{
-    width:100%;
-    font-weight:bold;
-    margin-bottom:4px;
-}
-.detail .info .list .content .subName{
-    width:100%;
-    margin-bottom:4px;
+.detail .info .descript span {
+  font-size: 1.5rem;
+  font-weight: bold;
 }
 
-.detail .info .list .content .movieImg{
-    margin-left:10px;
-    height:100px;
-    width:100px;
-    object-fit:fit;
-    margin-bottom:0.5rem;
+.detail .info .list .content {
+  margin-right: 2rem;
+  display: flex;
+  width: 10rem;
+  height: auto;
+  flex-flow: column nowrap;
+  justify-content: flex-start;
+  text-align: center;
+  padding: 4px;
+}
+.detail .info .list .content .actorImg {
+  margin-left: 10px;
+  height: 100px;
+  width: 100px;
+  object-fit: fit;
+  border-radius: 100%;
+  margin-bottom: 0.5rem;
+}
+.detail .info .section .sectionTitle {
+  font-size: 1.4rem;
+  font-weight: bold;
+  color: yellow;
+  margin-bottom: 0.5rem;
+}
+.detail .info .list {
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: flex-start;
+}
+.detail .info .list .content .actorName {
+  width: 100%;
+  font-weight: bold;
+  margin-bottom: 4px;
+}
+.detail .info .list .content .subName {
+  width: 100%;
+  margin-bottom: 4px;
 }
 
-.detail .info .list .content .movieName{
-    width:100%;
-    font-weight:bold;
-    margin-bottom:4px;
+.detail .info .list .content .movieImg {
+  margin-left: 10px;
+  height: 100px;
+  width: 100px;
+  object-fit: fit;
+  margin-bottom: 0.5rem;
+}
+
+.detail .info .list .content .movieName {
+  width: 100%;
+  font-weight: bold;
+  margin-bottom: 4px;
 }
