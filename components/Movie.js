@@ -18,10 +18,10 @@ function Moive() {
           <h3>2 tiếng 30 phút</h3>
           <div className={styles.cate}>
             <div className={styles.tag}>
-              <p class="content">Phiêu Lưu</p>
+              <p className={styles.content}>Phiêu Lưu</p>
             </div>
             <div className={styles.tag}>
-              <p class="content">Kỳ thú</p>
+              <p className={styles.content}>Kỳ thú</p>
             </div>
           </div>
           <div className={styles.origin}>
@@ -32,7 +32,7 @@ function Moive() {
               Quốc Gia: <span></span>
             </p>
             <p className={styles.originName}>
-              Khởi Chiếu <span></span>
+              Khởi Chiếu: <span></span>
             </p>
           </div>
           <div className={styles.descript}>

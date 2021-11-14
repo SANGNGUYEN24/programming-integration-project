@@ -5,9 +5,10 @@
     height:90vh;
     display:flex;
     justify-content:center;
-    max-width:1250px;
+    /* max-width:1250px; */
 }
 .container .bgimg{
+  position: absolute;
     width:100%;
     height:80vh;
     opacity:0.5;
@@ -168,34 +169,50 @@
 }
 
 
+
 @media only screen and (max-width: 768px) {
-    /* For mobile phones: */
-    .container{
-        width:90vh;
-         max-width:1250px;
-    }
-    .detail{
-        top:11rem;
-        width:100%;
-        padding:1rem 2rem;
-        
-        display:flex;
-        flex-flow:row wrap;
-       justify-content:center;
-    } 
-    .detail .poster{
-        display:flex;
-        flex-flow:column nowrap;
-        justify-content:center;
-        
-        width:80%;
-    }
-    .detail .btn{
-        width:50%;
-        margin:2rem auto ;
-        
-    }
-    .detail .info h1{
-        font-size:3rem;
-    }
+  /* For mobile phones: */
+  .container{
+    
+    width:100%;
+    max-width:1250px;
+    
   }
+  .detail{
+    top:11rem;
+    width:100%;
+    padding:1rem 2rem;
+      
+    flex-direction: column;
+    flex-flow:row wrap;
+    justify-content:center;
+  } 
+  .detail .img {
+    height: auto;
+    max-width: 100%;
+    /* position: fixed; */
+  }
+  .detail .poster{
+    display:flex;
+    flex-flow:column nowrap;
+    justify-content:center;
+    width:80%;
+  }
+  
+  .detail .btn{
+      
+      width:100%;
+      margin:2rem auto ;
+      font-size: 1.5rem;
+      
+  }
+  .detail .info h1{
+      font-size:2.5rem;
+  }
+  .detail .info h2{
+    font-size: 1.5rem;
+  }
+
+  
+  
+}
