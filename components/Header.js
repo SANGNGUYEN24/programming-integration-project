@@ -21,7 +21,11 @@ function Header() {
             <HeaderItems title="HOME" Icon={HomeIcon} />
           </a>
         </Link>
-        <HeaderItems title="VERIFIED" Icon={BadgeCheckIcon} />
+        <Link href="./login">
+          <a>
+            <HeaderItems title="LOGIN" Icon={BadgeCheckIcon} />
+          </a>
+        </Link>
         <HeaderItems title="COLLECTIONS" Icon={CollectionIcon} />
         <HeaderItems title="TRENDING" Icon={LightningBoltIcon} />
         <Link href="/search">

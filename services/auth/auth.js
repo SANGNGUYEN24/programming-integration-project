@@ -1,1 +1,0 @@
-// import { firebaseAuth } from "../config";
