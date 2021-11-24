@@ -1,16 +1,32 @@
 import Head from "next/head";
+import FilterBar from "../components/FIlterBar/FilterBar";
 import Header from "../components/Header";
-import Nav from "../components/Nav";
+// import Nav from "../components/Nav";
 import Results from "../components/Results";
-import requests from "../utils/requests";
+import dateFormat from "dateformat";
 
 export async function getServerSideProps(context) {
   const genre = context.query.genre;
+  const country = context.query.country;
+  const year = context.query.year;
+  const sortType = context.query.sortType;
+
+  // Query data based on filter:
   const results = await fetch(
-    `https://api.themoviedb.org/3${
-      requests[genre]?.url || requests.fetchingTrending.url
-    }`
+    `https://api.themoviedb.org/3/discover/movie?api_key=1e847192b47af5b50b8e751f0dccb12f&with_genres=${genre}&sort_by=${sortType}&year=${year}&with_original_language=${country}&release_date.lte=${dateFormat(
+      new Date(),
+      "yyyy-mm-dd"
+    )}`
   ).then((res) => res.json());
+
+  if (!results) {
+    return {
+      redirect: {
+        destination: "/",
+        permanent: false,
+      },
+    };
+  }
 
   return {
     props: {
@@ -20,7 +36,7 @@ export async function getServerSideProps(context) {
 }
 
 export default function Home({ results }) {
-  console.log(results);
+  // console.log(results);
   return (
     <div>
       <Head>
@@ -29,11 +45,9 @@ export default function Home({ results }) {
       </Head>
 
       <Header />
-      <Nav />
+      <FilterBar />
 
       <Results results={results.results} />
     </div>
-    //   );
-    // }
   );
 }
