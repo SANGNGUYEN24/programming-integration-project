@@ -1,19 +1,32 @@
 import Thumbnail from "./Thumbnail";
 import style from "../styles/results.module.css";
-import Link from "next/link";
+import FlipMove from "react-flip-move";
+import Link from "next/Link";
+import { useRouter } from "next/router";
 
 function Results({ results }) {
-  //console.log(results);
+  //console.log(results[1]);
+  const router = useRouter();
+
+  // onClick={() => router.push(`/?genre=${key}`)}
   return (
-    <div className={style.wrapper}>
+    <FlipMove className={style.wrapper}>
       {results.map((res) => (
-        <Link href="/details" key={res.id}>
+        <Link
+          href={{
+            pathname: "/details",
+            //query:{id:res.id}
+            query: { object: JSON.stringify(res.id) }
+          }}
+        >
           <a>
-            <Thumbnail results={res} />
+            <Thumbnail key={res.id} results={res} />
           </a>
         </Link>
+        
+
       ))}
-    </div>
+    </FlipMove>
   );
 }
 

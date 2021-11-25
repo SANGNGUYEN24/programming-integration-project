@@ -3,7 +3,7 @@ import Header from "../components/Header";
 import Nav from "../components/Nav";
 import Results from "../components/Results";
 import requests from "../utils/requests";
-
+import firebase from '../firebase/initfirebase'
 export async function getServerSideProps(context) {
   const genre = context.query.genre;
   const results = await fetch(
@@ -20,7 +20,7 @@ export async function getServerSideProps(context) {
 }
 
 export default function Home({ results }) {
-  console.log(results);
+  //console.log(results);
   return (
     <div>
       <Head>

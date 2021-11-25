@@ -28,20 +28,24 @@
   display: flex;
   flex-flow: column nowrap;
   justify-content: flex-start;
-  width: 24%;
+  width: 240px;
+  
+  object-fit:cover;
 }
 .detail .poster .img {
-  margin-bottom: 1rem;
+  margin-bottom: 2rem;
+  
 }
 .detail .btn {
+  margin-top:1rem;
   font-weight: bold;
   font-size: 12px;
   cursor: pointer;
   width: 100%;
   color: white;
-  padding-top: 4px;
+  padding: 4px;
   height: 3rem;
-  background-color: #e53d30;
+  background-color: #D53343;
   border-radius: 4px;
 }
 .detail .btn:hover {
@@ -123,12 +127,12 @@
   padding: 4px;
 }
 .detail .info .list .content .actorImg {
+  width:120px;
+  height:120px;
   margin-left: 10px;
-  height: 100px;
-  width: 100px;
-  object-fit: fit;
+  object-fit: cover;
   border-radius: 100%;
-  margin-bottom: 0.5rem;
+  margin-bottom: 1rem;
 }
 .detail .info .section .sectionTitle {
   font-size: 1.4rem;
