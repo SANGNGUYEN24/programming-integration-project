@@ -5,7 +5,14 @@ import Link from "next/link";
 import st from "./UserProfile.module.scss";
 import Results from "../Results";
 import { initializeApp } from "firebase/app";
-import { getFirestore,doc, collection, getDocs, query,onSnapshot} from "@firebase/firestore";
+import {
+  getFirestore,
+  doc,
+  collection,
+  getDocs,
+  query,
+  onSnapshot,
+} from "@firebase/firestore";
 import { useState, useEffect } from "react";
 //import {db} from "../../utils/firebase";
 
@@ -26,35 +33,35 @@ const db = getFirestore(app);
 const Blog = collection(db, "BlogTest");
 
 async function getCities(db) {
-    const citiesCol = collection(db, "BlogTest");
-    const citySnapshot = await getDocs(citiesCol);
-    const cityList = citySnapshot.docs.map((doc) => {
-      doc.data()
-   });
-    return cityList;
-  }
+  const citiesCol = collection(db, "BlogTest");
+  const citySnapshot = await getDocs(citiesCol);
+  const cityList = citySnapshot.docs.map((doc) => {
+    doc.data();
+  });
+  return cityList;
+}
 
-let arr=getCities(db);
+let arr = getCities(db);
 //console.log(arr)
 
 export default function User(props) {
-  const [movies,setMovies]=useState([]);
-  useEffect(()=>{
-    
+  const [movies, setMovies] = useState([]);
+  useEffect(() => {
     // const collectionRef = collection(db,"BlogTest/MovieList")
     // const q = query(collectionRef);
 
-    const movies=onSnapshot(doc(db,"BlogTest","MovieList"),(doc)=>{
+    const movies = onSnapshot(doc(db, "BlogTest", "MovieList"), (doc) => {
       //setMovies(QuerySnapshot.docs.map(doc=>doc.data()))
-      setMovies(doc.data())
-    })
-      return movies
-  },[])
-  console.log(movies.Movie)
+      setMovies(doc.data());
+    });
+    return movies;
+  }, []);
+  console.log(movies.Movie);
   return (
     <div>
       <div className={st.SectionWrapper}>
         <h1 className={st.h1}> Welcome Khoa </h1>
+        <p className={st.p}> Your email: retdkhoa@gmail.com </p>
         <Image
           layout="fixed"
           className={st.bgimg}
@@ -64,15 +71,25 @@ export default function User(props) {
         />
         <hr className={st.divider}></hr>
       </div>
-          
+
+      <h1 className={st.title}>Your PlayList</h1>
       <div className={st.playList}>
-        {movies.Movie?.map((mov)=>
-        (
-        <div className={st.container}>
-          {/* <Image className={st.item}/> */}
-          <p>{mov.name}</p>
-        </div>))}
-      
+        {movies.Movie?.map((mov) => (
+          <div className={st.container}>
+            {/* <Image className={st.item}/> */}
+            <Image
+              layout="responsive"
+              className={st.img}
+              src={mov?.url}
+              width={60}
+              height={40}
+            />
+            <div className={st.content}>
+              <h2 className={st.maincontent}>{mov.name} </h2>
+              <h3 className={st.subcontent}>Rating: {mov.rating}</h3>
+            </div>
+          </div>
+        ))}
       </div>
     </div>
   );

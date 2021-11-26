@@ -51,7 +51,7 @@ function Movie({ data, data1 }) {
     Movie:arrayUnion({
         name: data.title,
         rating: data.vote_average,
-        url: "form.tableNo.value"
+        url: `${BASE_URL}${data.poster_path}`
        })
   })
   }
