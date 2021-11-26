@@ -3,6 +3,7 @@ import ReactDOM from "react-dom";
 import Image from "next/image";
 import Movie from "../../components/Movie";
 import Header from "../../components/Header";
+import Footer from "../../components/Footer/Footer";
 import { withRouter } from "next/router";
 import { useRouter } from "next/router";
 // getstaticProps(contex)
@@ -41,10 +42,14 @@ export async function getServerSideProps(context) {
 function About({ data,data1 }) {
   const Router = useRouter();
   //console.log(Router.query)
-  console.log(data1);
+  //console.log(data1);
   return (
     <div>
+      <Header/>
+
       <Movie data={data} data1={data1} />
+      
+      <Footer/>
     </div>
   );
 }

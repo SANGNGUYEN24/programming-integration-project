@@ -1,0 +1,37 @@
+@import "../responsive.scss";
+.SectionWrapper {
+  display: flex;
+  flex-flow: column wrap;
+  justify-content: cetner;
+  align-items: center;
+  margin: 1rem;
+  margin-bottom: 2rem;
+  .h1 {
+    color: yellow;
+    margin-bottom: 1rem;
+  }
+  .bgimg {
+    border-radius: 100px;
+    margin-bottom: 1rem;
+  }
+  .divider {
+    margin-top: 1rem;
+    width: 100%;
+    border-top: 0.1px solid rgb(255, 255, 94);
+    opacity: 0.5;
+  }
+  
+}
+.playList{
+  margin:2rem;
+  display:flex;
+  flex-flow:row wrap;
+  justify-content:start;
+  align-items:space-around;
+  .container{
+    width:25%;
+    height:4rem;
+    border:1px solid salmon;
+    margin-right:1rem;
+  }
+}

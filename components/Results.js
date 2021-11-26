@@ -1,9 +1,8 @@
-import Thumbnail from "./Thumbnail";
 import style from "../styles/results.module.css";
 import FlipMove from "react-flip-move";
 import Link from "next/Link";
 import { useRouter } from "next/router";
-
+import Thumbnail from "./Thumbnail"
 function Results({ results }) {
   //console.log(results[1]);
   const router = useRouter();

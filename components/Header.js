@@ -29,7 +29,11 @@ function Header() {
             <HeaderItems title="SEARCH" Icon={SearchIcon} />
           </a>
         </Link>
-        <HeaderItems title="USER" Icon={UserIcon} />
+        <Link href="/user">
+          <a>
+          <HeaderItems title="USER" Icon={UserIcon} />
+          </a>
+        </Link>
       </div>
 
       <Image

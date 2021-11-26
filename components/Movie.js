@@ -1,10 +1,10 @@
 import styles from "../styles/movie.module.css";
 import Image from "next/image";
 import Link from "next/link";
-import { initializeApp } from 'firebase/app';
-import { getFirestore, collection, getDocs,addDoc } from 'firebase/firestore/lite';
-//import {db} from "../firebase/initfirebase"
 
+//import {db} from "../firebase/initfirebase"
+import { initializeApp } from 'firebase/app';
+import { getFirestore, collection,setDoc, getDocs,addDoc,doc,updateDoc, arrayUnion, arrayRemove } from 'firebase/firestore/lite';
 //import 'firebase/compat/firestore';
 
 const clientCredentials = {
@@ -21,7 +21,7 @@ const app = initializeApp(clientCredentials);
 const db = getFirestore(app);
 const Blog = collection(db, 'BlogTest');
 ;
-console.log(Blog)
+//console.log(Blog)
 function Movie({ data, data1 }) {
  // console.log(data1.cast)
   //const {title,...obj}={...this.data}
@@ -34,14 +34,26 @@ function Movie({ data, data1 }) {
   // const Blog = db.collection('BlogTest');
   
   const updateFirebase = (event) => {
+    //console.log(data)
    event.preventDefault();
-  addDoc(Blog,{
-    name: "khoa1",
-    rating: "aaaaa",
-    url: "form.tableNo.value",
+  //  addDoc(Blog,{
+  //   name: data.title,
+  //   rating: data.vote_average,
+  //   url: "form.tableNo.value"
+  // })
+   const docu=doc(db,"BlogTest/MovieList");
+  //  addDoc(docu,{
+  //   name: data.title,
+  //   rating: data.vote_average,
+  //   url: "form.tableNo.value"
+  //  },{merge:true})
+  updateDoc(docu,{
+    Movie:arrayUnion({
+        name: data.title,
+        rating: data.vote_average,
+        url: "form.tableNo.value"
+       })
   })
- 
-  
   }
 
   return (
