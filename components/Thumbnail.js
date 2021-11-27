@@ -23,7 +23,7 @@ const Thumbnail = ({ results }) => {
           {results.title || results.original_name}
         </h2>
         <p className={style.vote}>
-          {results.media_types && `${result.media_types} ●`}{" "}
+          {results.media_types && `${results.media_types} ●`}{" "}
           {results.release_date || results.first_air_date} ●{" "}
           <ThumbUpIcon className={style.thumbIcon} /> {results.vote_count}
         </p>

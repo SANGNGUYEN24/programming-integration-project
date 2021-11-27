@@ -1,27 +1,180 @@
+.header a img{
+  height: 30px;
+  width: 60px;
+}
+
 .header {
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  margin: 1.25rem;
-  align-items: center;
-  height: auto;
-}
-
-.headerwrap {
-  display: flex;
-  flex-grow: 1;
-  flex-direction: row;
-  justify-content: space-evenly;
-  max-width: 1024px;
-}
-
-.headerlogo {
-  object-fit: contain;
-}
-
-@media (min-width: 640px) {
-  .header {
-    flex-direction: row;
+    display: flex;
+    align-items: stretch;
+    background-color: #333;
+    /* margin-bottom: 10px; */
+    height: auto;
+    
   }
+
+.header .headerBrand{
+    display: flex;
+    flex-shrink: 0;
+    align-items: stretch;
+  }
+
+.header .headerBrand .brand{
+    display: flex;
+    align-items: center;
+    flex-grow: 0;
+    flex-shrink: 0;
+    padding: 8px 12px;
+  }
+
+.header .headerWrap{
+    display: flex;
+    align-items: stretch;
+    flex-grow: 1;
+    flex-shrink: 0;
+  
+  }
+.header .headerWrap .wrapStart {
+  display: flex;
+  align-items: stretch;
+  margin-right: auto;
+  justify-content: flex-start;
 }
 
+.header .headerWrap .wrapEnd {
+  display: flex;
+  align-items: stretch;
+  margin-left: auto;
+  justify-content: flex-end;
+}
+.header .headerWrap .wrapEnd .endButton {
+  display: flex;
+  align-items: center;
+  flex-grow: 0;
+  flex-shrink: 0;
+  color: #fff;
+  line-height: 1.5;
+  padding: 8px 12px;
+  position: relative;
+}
+
+.header .headerWrap .wrapEnd .endButton .signButton{
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  border: 1px solid transparent;
+  border-radius: 4px;
+  box-shadow: none;
+  font-size: 1rem;
+  height: 2.5em;
+  line-height: 1.5;
+  position: relative;
+  vertical-align: top;
+  cursor: pointer;
+  justify-content: center;
+  padding: 7px 16px;
+  text-align: center;
+  white-space: nowrap;
+  background-color: #cf2122;
+  border-color: transparent;
+  color: #fff;
+}
+
+.header .headerWrap a:hover{
+    background-color: #555;
+  } 
+
+.header .headerWrap .headerTitle{
+    display: flex;
+    flex-direction: row;
+    flex-grow: 0;
+    flex-shrink: 0;
+  }
+
+.header .headerWrap .headerTitle svg{
+    width: 1.5em;
+  }
+
+.header .headerWrap .headerTitle a{
+    display: flex;
+    align-items: center;
+    padding: 8px 12px;
+    position:relative;
+    text-decoration: none;
+  }
+  
+  @media only screen and (max-width: 768px) {
+    .header{
+      display: none;
+    }
+  }
+
+  .headerSmallscreen a img{
+    height: 30px;
+    width: 60px;
+    
+  }
+  
+  .headerSmallscreen {
+      display: flex;
+      align-items: stretch;
+      background-color: #333;
+      margin-bottom: 10px;
+      height: auto;      
+    }
+
+  .headerSmallscreen .headerBrand{
+    display: flex;
+    flex-shrink: 0;
+    align-items: stretch;
+  }
+  .headerSmallscreen .headerBrand .brand{
+      display: flex;
+      align-items: center;
+      flex-grow: 0;
+      flex-shrink: 0;
+      padding: 8px 12px;
+    }
+ 
+  .headerSmallscreen .headerWrap{
+      display: flex;
+      align-items: stretch;
+      justify-content: flex-end;
+      margin-left: auto;
+    }
+  
+  .headerSmallscreen .headerWrap a:hover{
+      background-color: #555;
+    } 
+  
+  .headerSmallscreen .headerWrap .headerTitle{
+      display: flex;
+      flex-grow: 0;
+      flex-shrink: 0;
+    }
+  
+  .headerSmallscreen .headerWrap .headerTitle svg{
+      width: 1.5em;
+    }
+
+  .headerSmallscreen .burger{
+    display: flex;
+    align-items: stretch;
+  }
+    .headerSmallscreen .burger svg{
+      cursor: pointer;
+      align-items: stretch;
+      width: 2em;
+    }
+
+  .headerSmallscreen .headerWrap .headerTitle a{
+      display: flex;
+      align-items: center;
+      padding: 8px 12px;
+      position:relative;
+      text-decoration: none;
+    }
+  @media only screen and (min-width: 768px) {
+    .headerSmallscreen{
+      display: none;
+    }
+  }

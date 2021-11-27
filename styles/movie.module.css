@@ -1,16 +1,17 @@
 .container {
-  z-index: 0;
   position: relative;
   width: 100%;
-  height: 90vh;
+  height: 60vh;
   display: flex;
   justify-content: center;
+  margin-bottom:100vh;
 }
 .container .bgimg {
   width: 100%;
-  height: 80vh;
+  height: 60vh;
   opacity: 0.5;
   object-fit: cover;
+  
 }
 .detail {
   top: 11rem;
@@ -28,20 +29,24 @@
   display: flex;
   flex-flow: column nowrap;
   justify-content: flex-start;
-  width: 24%;
+  width: 240px;
+  
+  object-fit:cover;
 }
 .detail .poster .img {
-  margin-bottom: 1rem;
+  margin-bottom: 2rem;
+  
 }
 .detail .btn {
+  margin-top:1rem;
   font-weight: bold;
   font-size: 12px;
   cursor: pointer;
   width: 100%;
   color: white;
-  padding-top: 4px;
+  padding: 4px;
   height: 3rem;
-  background-color: #e53d30;
+  background-color: #D53343;
   border-radius: 4px;
 }
 .detail .btn:hover {
@@ -78,25 +83,25 @@
 }
 
 .detail .info .cate {
-  display: flex;
-  flex-flow: row nowrap;
-  justify-content: flex-start;
-  align-items: center;
+  display:flex;
+  flex-flow:row nowrap;
+  justify-content:start;
+  align-item:center;
 }
-.detail .info .cate .tag {
-  border: white;
-  border-radius: 4px;
-  height: 2.5rem;
-  width: 6rem;
-  padding: 8px;
-  text-align: center;
-  border: 2px solid;
-  margin-right: 1rem;
-  margin-bottom: 2rem;
+.detail .info .cate .tag{
+  border:white;
+  border-radius:4px;
+  height:2.5rem;
+  width:6rem;
+  padding:8px;
+  text-align:center;
+  border:2px solid;
+  margin-right:1rem;
+  margin-bottom:2rem;
 }
-.detail .info .cate .tag:hover {
-  background-color: #4750e5;
-  color: white;
+.detail .info .cate .tag:hover{
+  background-color:#4750E5;
+  color:white;
 }
 
 .detail .info .originName {
@@ -123,12 +128,12 @@
   padding: 4px;
 }
 .detail .info .list .content .actorImg {
+  width:120px;
+  height:120px;
   margin-left: 10px;
-  height: 100px;
-  width: 100px;
-  object-fit: fit;
+  object-fit: cover;
   border-radius: 100%;
-  margin-bottom: 0.5rem;
+  margin-bottom: 1rem;
 }
 .detail .info .section .sectionTitle {
   font-size: 1.4rem;
@@ -163,4 +168,81 @@
   width: 100%;
   font-weight: bold;
   margin-bottom: 4px;
+}
+
+.fbShare svg {
+  height: 1.3em;
+  fill: #fff;
+  margin-right: 10px;
+}
+
+.container .detail .info .cate .shareTag{
+  display: flex 0 0 auto;
+  align-items: center;
+  justify-content: center;
+}
+
+.container .detail .info .cate .shareTag .fbShare {
+  display: inline-flex;
+  font-size: 1rem;
+  height: 2.5em;
+  line-height: 1.5;
+  position: relative;
+  vertical-align: top;
+  align-items: center;
+  border: 1px solid transparent;
+  border-radius: 4px;
+  -webkit-appearance: none;
+  cursor: pointer;
+  justify-content: center;
+  text-align: center;
+  white-space: nowrap;
+  padding: 7px 16px;
+  background-color: #3273dc;
+  border-color: transparent;
+  color: #fff;
+}
+
+@media only screen and (max-width: 768px) {
+  /* For mobile phones: */
+  .container{
+    
+    width:100%;
+    max-width:1250px;
+    
+  }
+  .detail{
+    top:11rem;
+    width:100%;
+    padding:1rem 2rem;
+      
+    flex-direction: column;
+    flex-flow:row wrap;
+    justify-content:center;
+  } 
+  .detail .img {
+    height: auto;
+    max-width: 100%;
+    /* position: fixed; */
+  }
+  .detail .poster{
+    display:flex;
+    flex-flow:column nowrap;
+    justify-content:center;
+    width:80%;
+  }
+  
+  .detail .btn{
+      
+      width:100%;
+      margin:2rem auto ;
+      font-size: 1.5rem;
+      
+  }
+  .detail .info h1{
+      font-size:2.5rem;
+  }
+  .detail .info h2{
+    font-size: 1.5rem;
+  }
 }
