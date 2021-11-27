@@ -19,6 +19,7 @@
     "react-flip-move": "^3.0.4",
     "react-google-material-icons": "^1.0.4",
     "react-player": "^2.9.0",
+    "react-router-dom": "^6.0.2",
     "react-slick": "^0.28.1",
     "react-social-login-buttons": "^3.6.0",
     "reactstrap": "^9.0.1",

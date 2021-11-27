@@ -3,8 +3,11 @@ import styled from "../styles/header.module.css";
 import Image from "next/image";
 import Link from "next/link";
 import logo from "../public/pip-logo.png";
+import { useState, useContext } from "react";
+import UserContext from "../pages/UserContext.js";
 
 function Header() {
+  const { signInWithGoogle } = useContext(UserContext);
   return (
     <div>
       <nav className={styled.headerSmallscreen}>
@@ -89,10 +92,9 @@ function Header() {
 
         <div className ={styled.wrapEnd}>
           <div className ={styled.endButton}>
-          <Link href = "/login">  
+          <Link href = "" onClick={() => signInWithGoogle()}>
           <a className ={styled.signButton}>Đăng nhập</a>
           </Link>
-
           </div>  
         </div>    
       </div>
