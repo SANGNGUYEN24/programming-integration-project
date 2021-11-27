@@ -94,10 +94,17 @@ function Movie({ data, data1 }) {
           <h2>{data.original_title}</h2>
           <div className={styles.cate}>
             <div className={styles.tag}>
-              <p class="content">Phiêu Lưu</p>
+              <p className={styles.content}>Phiêu Lưu</p>
             </div>
             <div className={styles.tag}>
-              <p class="content">Kỳ thú</p>
+              <p className={styles.content}>Kỳ thú</p>
+            </div>
+            <div className={styles.shareTag}>
+            <Link href="https://www.facebook.com/sharer/sharer.php?u=https://youtu.be/ZMeFnwsxh6s" > 
+            <a className={styles.fbShare}>
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path d="M448 80v352c0 26.5-21.5 48-48 48h-85.3V302.8h60.6l8.7-67.6h-69.3V192c0-19.6 5.4-32.9 33.5-32.9H384V98.7c-6.2-.8-27.4-2.7-52.2-2.7-51.6 0-87 31.5-87 89.4v49.9H184v67.6h60.9V480H48c-26.5 0-48-21.5-48-48V80c0-26.5 21.5-48 48-48h352c26.5 0 48 21.5 48 48z"></path>
+              </svg> Chia sẻ</a>
+            </Link>  
             </div>
           </div>
           <div className={styles.origin}>

@@ -10,7 +10,7 @@ function Results({ results }) {
   // onClick={() => router.push(`/?genre=${key}`)}
   return (
     <FlipMove className={style.wrapper}>
-      {results.map((res) => (
+      {results?.map((res) => (
         <Link
           href={{
             pathname: "/details",
