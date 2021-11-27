@@ -20,7 +20,7 @@ export async function getServerSideProps(context) {
 }
 
 export default function Home({ results }) {
-  console.log(results);
+  // console.log(results);
   return (
     <div>
       <Head>
