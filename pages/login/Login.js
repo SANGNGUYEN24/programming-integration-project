@@ -1,14 +1,37 @@
 import login from "../../components/login/Login.module.scss";
 import React from "react";
 import router from "next/router";
-import { useEffect, useState } from "react";
+import { signInWithPopup, GoogleAuthProvider, getAuth } from "firebase/auth";
+import { useState, useContext } from "react";
+import UserContext from "../UserContext.js";
 import {
   FacebookLoginButton,
   GoogleLoginButton,
 } from "react-social-login-buttons";
-import signInWithGoogle from "./loginFunctions";
 
 export default function LoginForm() {
+  const { signIn } = useContext(UserContext);
+
+  const signInWithGoogle = async () => {
+
+    const firebaseAuth = getAuth();
+    const provider = new GoogleAuthProvider();
+    var authenticated = false;
+    await signInWithPopup(firebaseAuth, provider)
+      .then((res) => {
+        console.log(res);
+        authenticated = true;
+        const username = res.user.displayName;
+        console.log(username);
+        signIn(username);
+      })
+      .catch((err) => {
+        console.log(err);
+        authenticated = false;
+      });
+    return Promise.resolve(authenticated);
+  };
+
   return (
     <div className={login.body}>
       <div className={login.LoginField}>
@@ -17,9 +40,9 @@ export default function LoginForm() {
           <GoogleLoginButton
             onClick={async () => {
               const auth = await signInWithGoogle();
-              console.log("Authenticated: ", auth);
+              // console.log("Authenticated: ", auth);
               if (auth == true) {
-                router.replace('../');
+                router.replace("../");
               }
             }}
           />

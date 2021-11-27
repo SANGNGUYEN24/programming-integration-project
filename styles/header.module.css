@@ -173,6 +173,22 @@
       position:relative;
       text-decoration: none;
     }
+
+    .signoutButton{
+       background-color: transparent;
+    background-repeat: no-repeat;
+    border: none;
+    cursor: pointer;
+    overflow: hidden;
+    outline: none;
+    }
+
+    .username{
+      display: flex;
+      position:relative;
+      padding: 16px;
+    }
+
   @media only screen and (min-width: 768px) {
     .headerSmallscreen{
       display: none;

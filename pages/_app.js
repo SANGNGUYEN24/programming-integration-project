@@ -6,8 +6,6 @@ import App from "next/app";
 import app from "./firebase_config";
 import UserContext from "./UserContext.js";
 import Router from "next/router";
-import { signInWithPopup, GoogleAuthProvider, getAuth } from "firebase/auth";
-import { useState, useContext } from "react";
 
 // function MyApp({ Component, pageProps })
 export default class MyApp extends App {
@@ -22,12 +20,13 @@ export default class MyApp extends App {
         user,
       });
     } else {
-      Router.push("/login");
+      Router.push("/");
     }
   };
 
-  signIn = (username, password) => {
+  signIn = (username) => {
     localStorage.setItem("pip-user", username);
+    console.log("called sign in");
 
     this.setState(
       {
@@ -39,44 +38,6 @@ export default class MyApp extends App {
     );
   };
 
-  signInWithGoogle = async () => {
-    // const { signIn } = useContext(UserContext);
-    // const [username, setUsername] = useState("");
-    // const [password, setPassword] = useState("");
-    // const [message, setMessage] = useState("");
-
-    const firebaseAuth = getAuth();
-    const provider = new GoogleAuthProvider();
-    var authenticated = false;
-    await signInWithPopup(firebaseAuth, provider)
-      .then((res) => {
-        console.log(res);
-        authenticated = true;
-        localStorage.setItem("pip-user", username);
-        this.setState(
-          {
-            user: res.user.displayName,
-          },
-          () => {
-            Router.push("/");
-          }
-        );
-      })
-      .catch((err) => {
-        console.log(err);
-        authenticated = false;
-      });
-    // return Promise.resolve(authenticated);
-  };
-
-  signOut = () => {
-    localStorage.removeItem("pip-user");
-    this.setState({
-      user: null,
-    });
-    Router.push("/login");
-  };
-
   render() {
     const { Component, pageProps } = this.props;
 
@@ -84,8 +45,7 @@ export default class MyApp extends App {
       <UserContext.Provider
         value={{
           user: this.state.user,
-          signIn: this.signInWithGoogle,
-          signOut: this.signOut,
+          signIn: this.signIn,
         }}
       >
         <Component {...pageProps} />;
