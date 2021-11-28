@@ -1,7 +1,6 @@
 import { initializeApp } from "firebase/app";
-import { getAuth, createUserWithEmailAndPassword } from "firebase/auth";
 import { getFirestore } from "firebase/firestore";
-
+import {getAuth,signOut} from "firebase/auth"
 const firebaseConfig = {
   apiKey: process.env.NEXT_PUBLIC_API_KEY,
   authDomain: process.env.NEXT_PUBLIC_AUTH_DOMAIN,
@@ -18,5 +17,8 @@ const firebaseConfig = {
 //     console.log("Initialized Firebase!");
 // }
 const app = initializeApp(firebaseConfig);
-
-export default app;
+const db = getFirestore();
+const auth=getAuth();
+export {app}
+export {auth};
+export {db};

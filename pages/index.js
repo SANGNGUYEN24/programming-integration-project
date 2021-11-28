@@ -3,7 +3,7 @@ import FilterBar from "../components/FIlterBar/FilterBar";
 import Header from "../components/Header";
 import Results from "../components/Results";
 import dateFormat from "dateformat";
-
+import Footer from "../components/Footer/Footer";
 export async function getServerSideProps(context) {
   const genre = context.query.genre;
   const country = context.query.country;
@@ -48,6 +48,7 @@ export default function Home({ results }) {
       <FilterBar />
 
       <Results results={results.results} />
+      <Footer/>
     </div>
   );
 }

@@ -3,7 +3,7 @@ import "../styles/globals.css";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import App from "next/app";
-import app from "./firebase_config";
+import {app,db,auth} from "./firebase_config";
 import UserContext from "./UserContext.js";
 import Router from "next/router";
 

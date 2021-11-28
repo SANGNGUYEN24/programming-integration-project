@@ -38,7 +38,7 @@ const Search = ({ results }) => {
         <input
           type="text"
           className={styles.SearchBar}
-          placeholder="Nhập tên phim..."
+          placeholder="Enter your movie..."
           onChange={(e) => {
             setSearch(toSlug(e.target.value));
           }}

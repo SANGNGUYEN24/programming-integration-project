@@ -1,60 +1,53 @@
 import styles from "../styles/movie.module.css";
 import Image from "next/image";
 import Link from "next/link";
-
-//import {db} from "../firebase/initfirebase"
-import { initializeApp } from 'firebase/app';
-import { getFirestore, collection,setDoc, getDocs,addDoc,doc,updateDoc, arrayUnion, arrayRemove } from 'firebase/firestore/lite';
+import { useContext } from "react";
+import { getFirestore, collection,setDoc, getDoc,addDoc,doc,updateDoc, arrayUnion, arrayRemove } from 'firebase/firestore';
+import { initializeApp } from "firebase/app";
+import UserContext from "../pages/UserContext.js";
+import {db} from "../pages/firebase_config"
 //import 'firebase/compat/firestore';
+console.log(db)
 
-// const clientCredentials = {
-//   apiKey: "AIzaSyCJI0l0RlCESg_z8pj7tzLnQY_Lu3GkGFU",
-//   authDomain: "blogproject-73eb1.firebaseapp.com",
-//   projectId: "blogproject-73eb1",
-//   storageBucket: "blogproject-73eb1.appspot.com",
-//   messagingSenderId: "1035680621092",
-//   appId: "1:1035680621092:web:221743378a0d6e26fc6eb1",
-//   measurementId: "G-YD9TN48HBY"
-// };
-
-// // const app = initializeApp(clientCredentials);
-// const db = getFirestore(app);
-// const Blog = collection(db, 'BlogTest');
-
-//console.log(Blog)
 function Movie({ data, data1 }) {
- // console.log(data1.cast)
+  // console.log(data1.cast)
   //const {title,...obj}={...this.data}
   //console.log(data.production_companies[0]);
+  const { userName, userEmail, userUid } = useContext(UserContext);
+  console.log(useContext(UserContext))
   let [cast1, cast2, cast3] = data1.cast;
   let company = data.production_companies[0];
-   const BASE_URL = "https://image.tmdb.org/t/p/original";
-
-  
+  const BASE_URL = "https://image.tmdb.org/t/p/original";
+  console.log(db)
   // const Blog = db.collection('BlogTest');
-  
-  const updateFirebase = (event) => {
+  const updateFirebase = async (event) => {
     //console.log(data)
-   event.preventDefault();
-  //  addDoc(Blog,{
-  //   name: data.title,
-  //   rating: data.vote_average,
-  //   url: "form.tableNo.value"
-  // })
-   const docu=doc(db,"BlogTest/MovieList");
-  //  addDoc(docu,{
-  //   name: data.title,
-  //   rating: data.vote_average,
-  //   url: "form.tableNo.value"
-  //  },{merge:true})
-  updateDoc(docu,{
-    Movie:arrayUnion({
-        name: data.title,
-        rating: data.vote_average,
-        url: `${BASE_URL}${data.poster_path}`
-       })
-  })
-  }
+    event.preventDefault();
+    console.log(collection(db,"bookmarks"))
+    console.log(typeof userUid)
+    const docu = doc(db, "bookmarks",userUid);
+    const docSnap = await getDoc(docu);
+
+    if (docSnap.exists()) {
+      updateDoc(docu, {
+        Movie: arrayUnion({
+          name: data.title,
+          rating: data.vote_average,
+          url: `${BASE_URL}${data.poster_path}`,
+        }),
+      });
+    } else {
+      setDoc(doc(db,"MovieList",userUid), {
+        Movie: [
+          {
+            name: data.title,
+            rating: data.vote_average,
+            url: `${BASE_URL}${data.poster_path}`,
+          },
+        ],
+      });
+    }
+  };
 
   return (
     <div className={styles.container}>
@@ -100,11 +93,14 @@ function Movie({ data, data1 }) {
               <p className={styles.content}>Kỳ thú</p>
             </div>
             <div className={styles.shareTag}>
-            <Link href="https://www.facebook.com/sharer/sharer.php?u=https://youtu.be/ZMeFnwsxh6s" > 
-            <a className={styles.fbShare}>
-              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path d="M448 80v352c0 26.5-21.5 48-48 48h-85.3V302.8h60.6l8.7-67.6h-69.3V192c0-19.6 5.4-32.9 33.5-32.9H384V98.7c-6.2-.8-27.4-2.7-52.2-2.7-51.6 0-87 31.5-87 89.4v49.9H184v67.6h60.9V480H48c-26.5 0-48-21.5-48-48V80c0-26.5 21.5-48 48-48h352c26.5 0 48 21.5 48 48z"></path>
-              </svg> Chia sẻ</a>
-            </Link>  
+              <Link href="https://www.facebook.com/sharer/sharer.php?u=https://youtu.be/ZMeFnwsxh6s">
+                <a className={styles.fbShare}>
+                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512">
+                    <path d="M448 80v352c0 26.5-21.5 48-48 48h-85.3V302.8h60.6l8.7-67.6h-69.3V192c0-19.6 5.4-32.9 33.5-32.9H384V98.7c-6.2-.8-27.4-2.7-52.2-2.7-51.6 0-87 31.5-87 89.4v49.9H184v67.6h60.9V480H48c-26.5 0-48-21.5-48-48V80c0-26.5 21.5-48 48-48h352c26.5 0 48 21.5 48 48z"></path>
+                  </svg>{" "}
+                  Chia sẻ
+                </a>
+              </Link>
             </div>
           </div>
           <div className={styles.origin}>
@@ -164,7 +160,7 @@ function Movie({ data, data1 }) {
 
           {/* List Movie */}
 
-          <div className={styles.section}>
+          {/* <div className={styles.section}>
             <p className={styles.sectionTitle}>Phim tương tự</p>
             <div className={styles.list}>
               <div className={styles.content}>
@@ -192,7 +188,7 @@ function Movie({ data, data1 }) {
                 <p className={styles.subName}> 2018 </p>
               </div>
             </div>
-          </div>
+          </div> */}
         </div>
       </div>
     </div>

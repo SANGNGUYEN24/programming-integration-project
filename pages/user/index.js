@@ -7,19 +7,21 @@ import Footer from "../../components/Footer/Footer";
 import { withRouter } from "next/router";
 import { useRouter } from "next/router";
 import User from "../../components/User/User";
+import {db,auth} from "../firebase_config"
 
 function ProfilePage() {
-    const Router = useRouter();
+    
     //console.log(Router.query)
     //console.log(data1);
+    
     return (
-      <div>
+      <>
         <Header/>
   
-        <User/>
+        <User />
         
         <Footer/>
-      </div>
+      </>
     );
   }
   

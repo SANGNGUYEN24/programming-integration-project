@@ -29,7 +29,7 @@ const Thumbnail = ({ results }) => {
         </p>
       </div>
     </div>
-  );
+  )
 };
 
 Thumbnail.displayName = "Thumbnail";

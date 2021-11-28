@@ -5,65 +5,50 @@ import Link from "next/link";
 import st from "./UserProfile.module.scss";
 import Results from "../Results";
 import { initializeApp } from "firebase/app";
+import { useContext } from "react";
 import {
   getFirestore,
   doc,
   collection,
   getDocs,
   query,
+  getDoc,
   onSnapshot,
+  QuerySnapshot,
+  DocumentSnapshot,
 } from "@firebase/firestore";
 import { useState, useEffect } from "react";
-//import {db} from "../../utils/firebase";
+import { db } from "../../pages/firebase_config.js";
+import UserContext from "../../pages/UserContext.js";
 
-import { QuerySnapshot } from "@firebase/firestore";
-// const clientCredentials = {
-//   apiKey: "AIzaSyCJI0l0RlCESg_z8pj7tzLnQY_Lu3GkGFU",
-//   authDomain: "blogproject-73eb1.firebaseapp.com",
-//   projectId: "blogproject-73eb1",
-//   storageBucket: "blogproject-73eb1.appspot.com",
-//   messagingSenderId: "1035680621092",
-//   appId: "1:1035680621092:web:221743378a0d6e26fc6eb1",
-//   measurementId: "G-YD9TN48HBY",
-// };
-// const app = initializeApp(clientCredentials);
-
-// const db = getFirestore(app);
-
-// const Blog = collection(db, "BlogTest");
-
-
-
-async function getCities(db) {
-  const citiesCol = collection(db, "BlogTest");
-  const citySnapshot = await getDocs(citiesCol);
-  const cityList = citySnapshot.docs.map((doc) => {
-    doc.data();
-  });
-  return cityList;
-}
-
-let arr = getCities(db);
-//console.log(arr)
-
+console.log(db);
 export default function User(props) {
+  const { userName, userEmail, userUid } = useContext(UserContext);
+
   const [movies, setMovies] = useState([]);
+  console.log(useContext(UserContext));
+  // console.log(doc(db,"bookmarks",userUid))
+
   useEffect(() => {
     // const collectionRef = collection(db,"BlogTest/MovieList")
     // const q = query(collectionRef);
+    console.log(userUid);
+    if (userUid) {
+      const movies = onSnapshot(doc(db, "bookmarks", userUid), (doc) => {
+        setMovies(doc.data());
+      });
+      return movies;
+    }
 
-    const movies = onSnapshot(doc(db, "BlogTest", "MovieList"), (doc) => {
-      //setMovies(QuerySnapshot.docs.map(doc=>doc.data()))
-      setMovies(doc.data());
-    });
-    return movies;
+    return {};
   }, []);
-  console.log(movies.Movie);
+  console.log(movies);
+
   return (
     <div>
       <div className={st.SectionWrapper}>
-        <h1 className={st.h1}> Welcome Khoa </h1>
-        <p className={st.p}> Your email: retdkhoa@gmail.com </p>
+        <h1 className={st.h1}> Welcome {userName} </h1>
+        <p className={st.p}> {userEmail} </p>
         <Image
           layout="fixed"
           className={st.bgimg}
@@ -76,7 +61,7 @@ export default function User(props) {
 
       <h1 className={st.title}>Your PlayList</h1>
       <div className={st.playList}>
-        {movies.Movie?.map((mov) => (
+        {movies?.Movie?.map((mov) => (
           <div className={st.container}>
             {/* <Image className={st.item}/> */}
             <Image

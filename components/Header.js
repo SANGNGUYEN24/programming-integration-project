@@ -55,7 +55,7 @@ function Header() {
                     d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"
                   />
                 </svg>
-                <span>Tìm Kiếm</span>
+                <span>Search</span>
               </a>
             </Link>
           </div>
@@ -88,7 +88,7 @@ function Header() {
                       d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"
                     />
                   </svg>
-                  <span>Tìm Kiếm</span>
+                  <span>Search</span>
                 </a>
               </Link>
             </div>
@@ -96,7 +96,7 @@ function Header() {
             <div className={styled.headerTitle}>
               <Link href="">
                 <a>
-                  <span>Phim Hot</span>
+                  <span>Hot Movies</span>
                 </a>
               </Link>
             </div>
@@ -104,7 +104,7 @@ function Header() {
             <div className={styled.headerTitle}>
               <Link href="">
                 <a>
-                  <span>Phim Lẻ</span>
+                  <span> Movie</span>
                 </a>
               </Link>
             </div>
@@ -112,7 +112,7 @@ function Header() {
             <div className={styled.headerTitle}>
               <Link href="">
                 <a>
-                  <span>Phim Bộ</span>
+                  <span>Series Movies</span>
                 </a>
               </Link>
             </div>
@@ -120,14 +120,20 @@ function Header() {
             <div className={styled.headerTitle}>
               <Link href="">
                 <a>
-                  <span>Phim Mới</span>
+                  <span>Newest Movies</span>
                 </a>
               </Link>
             </div>
           </div>
 
           <div className={styled.wrapEnd}>
-            {<div className={styled.username}>{userName}</div>}
+            {<div className={styled.username}>
+              <Link href="/user">
+                <a>
+                  {userName}
+                </a>
+              </Link>
+              </div>}
             <div className={styled.endButton}>
               {userName == null && (
                 <Link href="/login">

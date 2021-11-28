@@ -1,6 +1,6 @@
 import Header from "../components/Header";
 import SearchBar from "../components/SearchBar/SearchBar";
-
+import Footer from "../components/Footer/Footer";
 export async function getServerSideProps(context) {
   const genre = context.query.genre;
   const results = await fetch(
@@ -19,6 +19,7 @@ const Search = ({ results }) => {
     <div>
       <Header />
       <SearchBar results={results} />
+      <Footer/>
     </div>
   );
 };
