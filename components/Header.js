@@ -8,7 +8,8 @@ import { signOut, getAuth } from "firebase/auth";
 import UserContext from "../pages/UserContext.js";
 
 function Header() {
-  const { user } = useContext(UserContext);
+  const { userName } = useContext(UserContext);
+
   const auth = getAuth();
   return (
     <div>
@@ -126,20 +127,20 @@ function Header() {
           </div>
 
           <div className={styled.wrapEnd}>
-            {<div className={styled.username}>{user}</div>}
+            {<div className={styled.username}>{userName}</div>}
             <div className={styled.endButton}>
-              {user == null && (
+              {userName == null && (
                 <Link href="/login">
                   <a className={styled.signButton}>Sign in</a>
                 </Link>
               )}
-              {user != null && (
+              {userName != null && (
                 <button
                   className={styled.signoutButton}
                   // type="button"
                   onClick={() => {
                     signOut(auth);
-                    localStorage.removeItem("pip-user");
+                    localStorage.clear();
                   }}
                 >
                   <a href="/" className={styled.signButton}>

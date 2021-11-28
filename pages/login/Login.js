@@ -21,9 +21,12 @@ export default function LoginForm() {
       .then((res) => {
         console.log(res);
         authenticated = true;
-        const username = res.user.displayName;
-        console.log(username);
-        signIn(username);
+        // const username = res.user.displayName;
+        console.log(res);
+        const userName = res.user.displayName;
+        const userEmail = res.user.email;
+        const userUid = res.user.uid;
+        signIn(userName, userEmail, userUid);
       })
       .catch((err) => {
         console.log(err);

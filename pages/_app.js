@@ -9,27 +9,37 @@ import Router from "next/router";
 
 export default class MyApp extends App {
   state = {
-    user: null,
+    userName: null,
+    userEmail: null,
+    userUid: null,
   };
 
   componentDidMount = () => {
-    const user = localStorage.getItem("pip-user");
-    if (user) {
+    const userName = localStorage.getItem("pip-user-userName");
+    const userEmail = localStorage.getItem("pip-user-userEmail");
+    const userUid = localStorage.getItem("pip-user-userUid");
+    if (userName && userEmail && userUid) {
       this.setState({
-        user,
+        userName,
+        userEmail,
+        userUid        
       });
     } else {
       Router.push("/");
     }
   };
 
-  signIn = (username) => {
-    localStorage.setItem("pip-user", username);
+  signIn = (userName, userEmail, userUid) => {
+    localStorage.setItem("pip-user-userName", userName);
+    localStorage.setItem("pip-user-userEmail", userEmail);
+    localStorage.setItem("pip-user-userUid", userUid);
     console.log("called sign in");
 
     this.setState(
       {
-        user: username,
+        userName: userName,
+        userEmail: userEmail,
+        userUid: userUid
       },
       () => {
         Router.push("/");
@@ -43,7 +53,9 @@ export default class MyApp extends App {
     return (
       <UserContext.Provider
         value={{
-          user: this.state.user,
+          userName: this.state.userName,
+          userEmail: this.state.userEmail,
+          userUid: this.state.userUid,
           signIn: this.signIn,
         }}
       >
