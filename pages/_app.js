@@ -7,7 +7,6 @@ import app from "./firebase_config";
 import UserContext from "./UserContext.js";
 import Router from "next/router";
 
-// function MyApp({ Component, pageProps })
 export default class MyApp extends App {
   state = {
     user: null,
