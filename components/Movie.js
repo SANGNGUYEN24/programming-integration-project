@@ -37,7 +37,7 @@ function Movie({ data, data1 }) {
         }),
       });
     } else {
-      setDoc(doc(db,"MovieList",userUid), {
+      setDoc(doc(db,"bookmarks",userUid), {
         Movie: [
           {
             name: data.title,
@@ -105,19 +105,19 @@ function Movie({ data, data1 }) {
           </div>
           <div className={styles.origin}>
             <p className={styles.originName}>
-              Đạo Diễn: <span>{company.name}</span>
+              Director Company: <span>{company.name}</span>
             </p>
             <p className={styles.originName}>
-              Quốc Gia: <span>{company.origin_country}</span>
+              Origin: <span>{company.origin_country}</span>
             </p>
             <p className={styles.originName}>
-              Khởi Chiếu: <span>{data.release_date}</span>
+              Release Date: <span>{data.release_date}</span>
             </p>
           </div>
           <div className={styles.descript}>{data.overview}</div>
           {/* List actor */}
           <div className={styles.section}>
-            <p className={styles.sectionTitle}>Diễn Viên</p>
+            <p className={styles.sectionTitle}>Main actors</p>
             <div className={styles.list}>
               <div className={styles.content}>
                 <Image
