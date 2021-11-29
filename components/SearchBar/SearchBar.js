@@ -50,10 +50,10 @@ const Search = ({ results }) => {
             if (Search == "") return null;
             if (toSlug(result.title).includes(Search))
               return (
-                <Link href="/details">
+                <Link passHref href="/details">
                   <div className={styles.Card} key={index}>
                     <div className={styles.Image}>
-                      <Image
+                      <Image alt="Search"
                         src={`${BASE_URL}${result.poster_path}`}
                         width={216}
                         height={324}

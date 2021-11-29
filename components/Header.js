@@ -1,8 +1,11 @@
 // import HeaderItems from "./HeaderItems";
 import styled from "../styles/header.module.css";
 import Link from "next/link";
+import logo from "../public/pip-logo.png";
+import { useState, useContext } from "react";
 import { signOut, getAuth } from "firebase/auth";
 import UserContext from "../pages/UserContext.js";
+import { useRouter } from "next/router";
 
 function Header() {
   const { userName } = useContext(UserContext);
@@ -36,7 +39,7 @@ function Header() {
         </div>
         <div className={styled.headerWrap}>
           <div className={styled.headerTitle}>
-            <Link href="">
+            <Link href="/search">
               <a>
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
