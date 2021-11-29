@@ -6,6 +6,7 @@ import logo from "../public/pip-logo.png";
 import { useState, useContext } from "react";
 import { signOut, getAuth } from "firebase/auth";
 import UserContext from "../pages/UserContext.js";
+import { useRouter } from "next/router";
 
 function Header() {
   const { userName } = useContext(UserContext);
@@ -144,14 +145,23 @@ function Header() {
                 <button
                   className={styled.signoutButton}
                   // type="button"
-                  onClick={() => {
-                    signOut(auth);
+                  onClick={async () => {
+                    await signOut(auth);
                     localStorage.clear();
                   }}
                 >
-                  <a href="/" className={styled.signButton}>
+                  {/* <Link >
+                    <a className={styled.signButton}>Sign out</a>
+                  </Link> */}
+                  <div
+                    onClick={() => {
+                      window.location.reload();
+                    }}
+                    className={styled.signButton}
+                  >
+                    {" "}
                     Sign out
-                  </a>
+                  </div>
                 </button>
               )}
             </div>
