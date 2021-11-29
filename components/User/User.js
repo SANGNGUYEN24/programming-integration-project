@@ -18,7 +18,7 @@ import {
   DocumentSnapshot,
 } from "@firebase/firestore";
 import { useState, useEffect } from "react";
-import { db } from "../../pages/firebase_config.js";
+import { db } from "../../utils/firebase_config.js";
 import UserContext from "../../pages/UserContext.js";
 
 console.log(db);

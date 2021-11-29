@@ -15,7 +15,7 @@ import {
 } from "firebase/firestore";
 import { initializeApp } from "firebase/app";
 import UserContext from "../pages/UserContext.js";
-import { db } from "../pages/firebase_config";
+import { db } from "../utils/firebase_config";
 //import 'firebase/compat/firestore';
 // console.log(db);
 

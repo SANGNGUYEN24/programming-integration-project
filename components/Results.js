@@ -9,7 +9,7 @@ function Results({ results }) {
 
   // onClick={() => router.push(`/?genre=${key}`)}
   return (
-    <FlipMove className={style.wrapper}>
+    <div className={style.wrapper}>
       {results?.map((res, idx) => (
         <Link
           key={idx}
@@ -24,7 +24,7 @@ function Results({ results }) {
           </a>
         </Link>
       ))}
-    </FlipMove>
+    </div>
   );
 }
 
