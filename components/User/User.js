@@ -61,8 +61,8 @@ export default function User(props) {
 
       <h1 className={st.title}>Your PlayList</h1>
       <div className={st.playList}>
-        {movies?.Movie?.map((mov) => (
-          <div className={st.container}>
+        {movies?.Movie?.map((mov, index) => (
+          <div className={st.container} key={index}>
             {/* <Image className={st.item}/> */}
             <Image
               layout="responsive"
