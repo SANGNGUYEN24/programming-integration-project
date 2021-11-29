@@ -94,7 +94,7 @@ function Header() {
             </div>
 
             <div className={styled.headerTitle}>
-              <Link href="">
+              <Link href="/">
                 <a>
                   <span>Hot Movies</span>
                 </a>
@@ -102,7 +102,7 @@ function Header() {
             </div>
 
             <div className={styled.headerTitle}>
-              <Link href="">
+              <Link href="/">
                 <a>
                   <span> Movie</span>
                 </a>
@@ -110,7 +110,7 @@ function Header() {
             </div>
 
             <div className={styled.headerTitle}>
-              <Link href="">
+              <Link href="/">
                 <a>
                   <span>Series Movies</span>
                 </a>
@@ -118,7 +118,7 @@ function Header() {
             </div>
 
             <div className={styled.headerTitle}>
-              <Link href="">
+              <Link href="/">
                 <a>
                   <span>Newest Movies</span>
                 </a>
@@ -127,13 +127,13 @@ function Header() {
           </div>
 
           <div className={styled.wrapEnd}>
-            {<div className={styled.username}>
-              <Link href="/user">
-                <a>
-                  {userName}
-                </a>
-              </Link>
-              </div>}
+            {
+              <div className={styled.username}>
+                <Link href="/user">
+                  <a>{userName}</a>
+                </Link>
+              </div>
+            }
             <div className={styled.endButton}>
               {userName == null && (
                 <Link href="/login">

@@ -12,26 +12,26 @@ export default function Footer() {
         alt={`#`}
       />
       <div className={st.content}>
-        Phim chất lượng cao online của XemPhim khác gì so với các trang phim
-        khác?
+        How is Phim Phim's online high quality movie different from other movie
+        sites?
         <ul>
           <li className={st.li}>
-            Là phim blurliy (reencoded), có độ phân giải thấp nhất là Full HD
-            (1080p), trong khi hầu hết các trling phim khác chỉ có tới độ phân
-            giải HD (720p) là cao nhất
+            As a blurliy (reencoded) movie, the lowest resolution is Full HD
+            (1080p), while most other movies only have up to HD resolution
+            (720p) which is the highest.
           </li>
           <li className={st.li}>
-            Chất lượng cao, lượng dữ liệu trên giây (bitrate) gấp từ 5 - 10 lần
-            phim online thông thường - đây là yếu tố quyết định độ nét của phim
-            (thậm chí còn quan trọng hơn độ phân giải)
+            High quality, the amount of data per second (bitrate) is 5-10 times
+            higher than regular online movies - this is the deciding factor for
+            the sharpness of the movie (even more important than the resolution)
           </li>
           <li className={st.li}>
-            Âm thanh 5.1 (6 channel) thay vì stereo (2 channel) như các trang
-            phim khác (kể cả Youtube)
+            5.1 sound (6 channels) instead of stereo (2 channels) like other
+            movie sites (including Youtube)
           </li>
           <li className={st.li}>
-            Phù hợp để xem trên màn hình TV, máy tính, laptop có độ phân giải
-            cao
+            Suitable for viewing on high-resolution TV, computer, and laptop
+            screens
           </li>
         </ul>
       </div>

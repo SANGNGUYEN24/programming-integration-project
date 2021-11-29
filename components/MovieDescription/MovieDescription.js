@@ -3,8 +3,17 @@ import Image from "next/image";
 import FavoriteIcon from "../../public/favorite_icon.svg";
 import ShareIcon from "../../public/share_icon.svg";
 import ThumbnailImage from "../../public/film_image.jpg";
+import Link from "next/link";
 
-export default function MovieDescription({ movieDetail, movieActors }) {
+export default function MovieDescription({ movieVideos, movieDetail, movieActors }) {
+  // Get movie trailer
+  let trailerUrl;
+  for (let i = 0; i < movieVideos.results.length; i++) {
+    if (movieVideos.results[i].type === "Trailer") {
+      trailerUrl = movieVideos.results[i].key;
+    }
+  }
+
   // Base Image Url
   const BASE_IMAGE_URL = "https://image.tmdb.org/t/p/original";
 
@@ -64,12 +73,14 @@ export default function MovieDescription({ movieDetail, movieActors }) {
                 </a>
               </li>
               <li className={classes.ShareBtn}>
-                <a>
-                  <span>
-                    <Image src={ShareIcon} />
-                  </span>
-                  <p>Share</p>
-                </a>
+                <Link href={`https://www.facebook.com/sharer/sharer.php?u=https://youtu.be/${trailerUrl}`}>
+                  <a>
+                    <span>
+                      <Image src={ShareIcon} />
+                    </span>
+                    <p>Share</p>
+                  </a>
+                </Link>
               </li>
             </ul>
           </div>

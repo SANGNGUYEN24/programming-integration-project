@@ -38,24 +38,29 @@ function Movie({ data, data1, movieId }) {
     const docu = doc(db, "bookmarks", userUid);
     const docSnap = await getDoc(docu);
 
-    if (docSnap.exists()) {
-      updateDoc(docu, {
-        Movie: arrayUnion({
-          name: data.title,
-          rating: data.vote_average,
-          url: `${BASE_URL}${data.poster_path}`,
-        }),
-      });
-    } else {
-      setDoc(doc(db, "bookmarks", userUid), {
-        Movie: [
-          {
+    try {
+      if (docSnap.exists()) {
+        updateDoc(docu, {
+          Movie: arrayUnion({
             name: data.title,
             rating: data.vote_average,
             url: `${BASE_URL}${data.poster_path}`,
-          },
-        ],
-      });
+          }),
+        });
+      } else {
+        setDoc(doc(db, "bookmarks", userUid), {
+          Movie: [
+            {
+              name: data.title,
+              rating: data.vote_average,
+              url: `${BASE_URL}${data.poster_path}`,
+            },
+          ],
+        });
+      }
+      alert("💌 Added to your favourite movies!");
+    } catch (e) {
+      alert(e.message);
     }
   };
 
@@ -94,13 +99,20 @@ function Movie({ data, data1, movieId }) {
             }}
           >
             <a>
-              <button className={styles.btn}>Xem phim ngay</button>
+              <button className={styles.btn}>Watch movie</button>
             </a>
           </Link>
-
-          <button onClick={updateFirebase} className={styles.btn}>
-            Add movie
-          </button>
+          {userName ? (
+            <button onClick={updateFirebase} className={styles.btn}>
+              Bookmark this movie
+            </button>
+          ) : (
+            <Link href="/login">
+              <a>
+                <button className={styles.btn}>Sign in to bookmark</button>
+              </a>
+            </Link>
+          )}
         </div>
         {/* phan information */}
         <div className={styles.info}>
@@ -108,10 +120,10 @@ function Movie({ data, data1, movieId }) {
           <h2>{data.original_title}</h2>
           <div className={styles.cate}>
             <div className={styles.tag}>
-              <p className={styles.content}>Phiêu Lưu</p>
+              <p className={styles.content}>Adventure</p>
             </div>
             <div className={styles.tag}>
-              <p className={styles.content}>Kỳ thú</p>
+              <p className={styles.content}>Fantacy</p>
             </div>
             <div className={styles.shareTag}>
               <Link href="https://www.facebook.com/sharer/sharer.php?u=https://youtu.be/ZMeFnwsxh6s">
@@ -119,7 +131,7 @@ function Movie({ data, data1, movieId }) {
                   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512">
                     <path d="M448 80v352c0 26.5-21.5 48-48 48h-85.3V302.8h60.6l8.7-67.6h-69.3V192c0-19.6 5.4-32.9 33.5-32.9H384V98.7c-6.2-.8-27.4-2.7-52.2-2.7-51.6 0-87 31.5-87 89.4v49.9H184v67.6h60.9V480H48c-26.5 0-48-21.5-48-48V80c0-26.5 21.5-48 48-48h352c26.5 0 48 21.5 48 48z"></path>
                   </svg>{" "}
-                  Chia sẻ
+                  Share
                 </a>
               </Link>
             </div>

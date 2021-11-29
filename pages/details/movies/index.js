@@ -46,7 +46,11 @@ const Home = ({ movieDetail, movieActors, movieVideos, movieSimilars }) => {
     <>
       <Header />
       <MoviePlaying movieVideos={movieVideos} />
-      <MovieDescription movieDetail={movieDetail} movieActors={movieActors} />
+      <MovieDescription
+        movieVideos={movieVideos}
+        movieDetail={movieDetail}
+        movieActors={movieActors}
+      />
       <MovieRalated movieSimilars={movieSimilars} />
       <MovieActor movieActors={movieActors} />
       <Footer />
