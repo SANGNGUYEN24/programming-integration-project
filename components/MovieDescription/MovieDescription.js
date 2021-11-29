@@ -2,7 +2,6 @@ import classes from "./MovieDescription.module.scss";
 import Image from "next/image";
 import FavoriteIcon from "../../public/favorite_icon.svg";
 import ShareIcon from "../../public/share_icon.svg";
-import ThumbnailImage from "../../public/film_image.jpg";
 import Link from "next/link";
 
 export default function MovieDescription({ movieVideos, movieDetail, movieActors }) {

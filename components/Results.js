@@ -1,5 +1,4 @@
 import style from "../styles/results.module.css";
-import FlipMove from "react-flip-move";
 import Link from "next/link";
 import { useRouter } from "next/router";
 import Thumbnail from "./Thumbnail";

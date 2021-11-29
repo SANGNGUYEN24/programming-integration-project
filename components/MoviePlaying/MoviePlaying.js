@@ -1,5 +1,4 @@
 import classes from "./MoviePlaying.module.scss";
-import Header from "../Header";
 
 const MoviePlaying = ({ movieVideos }) => {
   let trailerUrl;

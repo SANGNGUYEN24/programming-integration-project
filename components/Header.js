@@ -1,12 +1,8 @@
 // import HeaderItems from "./HeaderItems";
 import styled from "../styles/header.module.css";
-import Image from "next/image";
 import Link from "next/link";
-import logo from "../public/pip-logo.png";
-import { useState, useContext } from "react";
 import { signOut, getAuth } from "firebase/auth";
 import UserContext from "../pages/UserContext.js";
-import { useRouter } from "next/router";
 
 function Header() {
   const { userName } = useContext(UserContext);

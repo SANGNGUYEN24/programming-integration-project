@@ -1,21 +1,10 @@
 import React from "react";
-import ReactDOM from "react-dom";
 import Image from "next/image";
-import Link from "next/link";
 import st from "./UserProfile.module.scss";
-import Results from "../Results";
-import { initializeApp } from "firebase/app";
 import { useContext } from "react";
 import {
-  getFirestore,
   doc,
-  collection,
-  getDocs,
-  query,
-  getDoc,
   onSnapshot,
-  QuerySnapshot,
-  DocumentSnapshot,
 } from "@firebase/firestore";
 import { useState, useEffect } from "react";
 import { db } from "../../utils/firebase_config.js";
