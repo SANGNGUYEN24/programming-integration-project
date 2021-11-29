@@ -2,6 +2,7 @@
 
 .SectionWrapper {
   margin: 0 auto;
+  margin-bottom: 40px;
   width: 100%;
   padding: 0 15px;
   transition: all 0.5s cubic-bezier(0.55, 0, 0.1, 1);
@@ -40,6 +41,11 @@
   .ListMovieWrapper {
     .MovieCardWrapper {
       padding: 20px;
+      text-align: center;
+
+      .ActorImage {
+        border-radius: 50%;
+      }
 
       p {
         margin-top: 5px;

@@ -2,30 +2,40 @@ import styles from "../styles/movie.module.css";
 import Image from "next/image";
 import Link from "next/link";
 import { useContext } from "react";
-import { getFirestore, collection,setDoc, getDoc,addDoc,doc,updateDoc, arrayUnion, arrayRemove } from 'firebase/firestore';
+import {
+  getFirestore,
+  collection,
+  setDoc,
+  getDoc,
+  addDoc,
+  doc,
+  updateDoc,
+  arrayUnion,
+  arrayRemove,
+} from "firebase/firestore";
 import { initializeApp } from "firebase/app";
 import UserContext from "../pages/UserContext.js";
-import {db} from "../pages/firebase_config"
+import { db } from "../pages/firebase_config";
 //import 'firebase/compat/firestore';
-console.log(db)
+// console.log(db);
 
-function Movie({ data, data1 }) {
+function Movie({ data, data1, movieId }) {
   // console.log(data1.cast)
   //const {title,...obj}={...this.data}
   //console.log(data.production_companies[0]);
   const { userName, userEmail, userUid } = useContext(UserContext);
-  console.log(useContext(UserContext))
+  // console.log(useContext(UserContext));
   let [cast1, cast2, cast3] = data1.cast;
   let company = data.production_companies[0];
   const BASE_URL = "https://image.tmdb.org/t/p/original";
-  console.log(db)
+  // console.log(db);
   // const Blog = db.collection('BlogTest');
   const updateFirebase = async (event) => {
     //console.log(data)
     event.preventDefault();
-    console.log(collection(db,"bookmarks"))
-    console.log(typeof userUid)
-    const docu = doc(db, "bookmarks",userUid);
+    // console.log(collection(db, "bookmarks"));
+    // console.log(typeof userUid);
+    const docu = doc(db, "bookmarks", userUid);
     const docSnap = await getDoc(docu);
 
     if (docSnap.exists()) {
@@ -37,7 +47,7 @@ function Movie({ data, data1 }) {
         }),
       });
     } else {
-      setDoc(doc(db,"bookmarks",userUid), {
+      setDoc(doc(db, "bookmarks", userUid), {
         Movie: [
           {
             name: data.title,
@@ -76,7 +86,18 @@ function Movie({ data, data1 }) {
             height={300}
             alt={`#`}
           />
-          <button className={styles.btn}>Xem phim ngay</button>
+
+          <Link
+            href={{
+              pathname: "/details/movies",
+              query: { m: movieId },
+            }}
+          >
+            <a>
+              <button className={styles.btn}>Xem phim ngay</button>
+            </a>
+          </Link>
+
           <button onClick={updateFirebase} className={styles.btn}>
             Add movie
           </button>

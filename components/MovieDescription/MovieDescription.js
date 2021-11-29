@@ -4,17 +4,54 @@ import FavoriteIcon from "../../public/favorite_icon.svg";
 import ShareIcon from "../../public/share_icon.svg";
 import ThumbnailImage from "../../public/film_image.jpg";
 
-export default function MovieDescription() {
+export default function MovieDescription({ movieDetail, movieActors }) {
+  // Base Image Url
+  const BASE_IMAGE_URL = "https://image.tmdb.org/t/p/original";
+
+  // Get director:
+  let director;
+  for (let i = 0; i < movieActors.crew.length; i++) {
+    if (movieActors.crew[i].job === "Director") {
+      director = movieActors.crew[i];
+      break;
+    }
+  }
+
+  // Get 10 actors:
+  let actors = "";
+  let numberActors = 0;
+  for (let i = 0; i < movieActors.cast.length; i++) {
+    if (numberActors > 10) break;
+    actors += `${movieActors.cast[i].name}, `;
+    numberActors++;
+  }
+  actors += ". . .";
+
+  // Get genres:
+  let genres = "";
+  movieDetail.genres.forEach((genre) => {
+    genres += `${genre.name}, `;
+  });
+
+  //
+
   return (
     <div className={classes.SectionContainer}>
       <div className={classes.LeftIntro}>
         <div className={classes.Col1}>
-          <Image src={ThumbnailImage} />
+          <Image
+            src={`${BASE_IMAGE_URL}${
+              movieDetail.poster_path || movieDetail.backdrop_path
+            }`}
+            width={720}
+            height={1080}
+            objectFit="contain"
+          />
         </div>
         <div className={classes.Col2}>
           <div className={classes.FilmTitle}>
-            <h4>Kẻ Vô Danh</h4>
-            <h5>Nobody</h5>
+            <h4>{movieDetail.title}</h4>
+            <h5>{movieDetail.original_title}</h5>
           </div>
           <div className={classes.UserAction}>
             <ul className={classes.ListInline}>
@@ -23,7 +60,7 @@ export default function MovieDescription() {
                   <span>
                     <Image src={FavoriteIcon} width={20} />
                   </span>
-                  <p>Theo dõi</p>
+                  <p>Follow</p>
                 </a>
               </li>
               <li className={classes.ShareBtn}>
@@ -31,18 +68,15 @@ export default function MovieDescription() {
                   <span>
                     <Image src={ShareIcon} />
                   </span>
-                  <p>Chia sẽ</p>
+                  <p>Share</p>
                 </a>
               </li>
             </ul>
           </div>
           <div className={classes.FilmDesc}>
-            <span>Nội dung</span>
+            <span>Overview</span>
             <p>
-              Đôi khi người đàn ông mà bạn không để ý lại là người nguy hiểm
-              nhất. Hutch Mansell, một người cha và người chồng bị đánh giá thấp
-              và bị coi thường, luôn coi thường sự phẫn nộ của cuộc đời và không
-              bao giờ lùi bước. Một kẻ vô danh.
+              {movieDetail.overview}
               <br />
             </p>
           </div>
@@ -53,31 +87,28 @@ export default function MovieDescription() {
           <table>
             <tbody>
               <tr>
-                <td>Thời lượng</td>
-                <td>91 phút</td>
+                <td>Time</td>
+                <td>{movieDetail.runtime} minutes</td>
               </tr>
               <tr>
-                <td>Đạo diễn</td>
-                <td>Ilya Naishuller</td>
+                <td>Director</td>
+                <td>{director.name}</td>
               </tr>
               <tr>
-                <td>Diễn viên</td>
-                <td>
-                  Bob Odenkirk, Connie Nielsen, Christopher Lloyd, Humberly
-                  González, Aleksei Serebryakov
-                </td>
+                <td>Cast</td>
+                <td>{actors}</td>
               </tr>
               <tr>
-                <td>Quốc gia</td>
-                <td>Mỹ</td>
+                <td>Language</td>
+                <td>{movieDetail.original_language.toUpperCase()}</td>
               </tr>
               <tr>
-                <td>Thể loại</td>
-                <td>Hành động, Tội phạm, Tâm lý</td>
+                <td>Genres</td>
+                <td>{genres}</td>
               </tr>
               <tr>
-                <td>Phát hành</td>
-                <td>2021</td>
+                <td>Release Date</td>
+                <td>{movieDetail.release_date}</td>
               </tr>
             </tbody>
           </table>

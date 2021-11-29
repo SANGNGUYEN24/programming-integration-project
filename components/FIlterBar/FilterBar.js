@@ -14,9 +14,9 @@ const SelectionBar = ({ filterType, handleChange, title }) => {
         style={{ width: "200px" }}
         size={"large"}
         onChange={handleChange}
-        placeholder="- Tất cả -"
+        placeholder="- All -"
       >
-        <Option value="">- Tất cả -</Option>
+        <Option value="">- All -</Option>
         {filterType.map((filerElement, index) => {
           return (
             <Option value={filerElement.id} key={index}>
