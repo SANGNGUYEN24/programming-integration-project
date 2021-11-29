@@ -85,8 +85,8 @@
 .detail .info .cate {
   display:flex;
   flex-flow:row nowrap;
-  justify-content:start;
-  align-item:center;
+  justify-content:flex-start;
+  align-items:center;
 }
 .detail .info .cate .tag{
   border:white;
