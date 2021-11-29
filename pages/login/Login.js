@@ -3,7 +3,7 @@ import React from "react";
 import router from "next/router";
 import { signInWithPopup, GoogleAuthProvider, getAuth } from "firebase/auth";
 import { useState, useContext } from "react";
-import UserContext from "../UserContext.js";
+import UserContext from "../../utils/UserContext";
 import {
   FacebookLoginButton,
   GoogleLoginButton,
