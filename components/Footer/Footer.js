@@ -12,7 +12,7 @@ export default function Footer() {
         alt={`#`}
       />
       <div className={st.content}>
-        How is Phim Phim's online high quality movie different from other movie
+        How is PIP online high quality movie different from other movie
         sites?
         <ul>
           <li className={st.li}>

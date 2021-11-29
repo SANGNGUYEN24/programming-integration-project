@@ -13,7 +13,7 @@ const MovieCard = ({ movieInfo }) => {
 
   return (
     <div className={classes.MovieCardWrapper}>
-      <Image
+      <Image alt="Movie"
         src={`${BASE_IMAGE_URL}${
           movieInfo.poster_path || movieInfo.backdrop_path
         }`}
@@ -90,7 +90,7 @@ export default function MovieRalated({ movieSimilars }) {
         <Slider {...settings}>
           {movieSimilars.results.map((relatedMovie, index) => {
             return (
-              <Link
+              <Link key={index}
                 href={{
                   pathname: "/details/movies",
                   query: {

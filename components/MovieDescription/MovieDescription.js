@@ -48,7 +48,7 @@ export default function MovieDescription({ movieVideos, movieDetail, movieActors
     <div className={classes.SectionContainer}>
       <div className={classes.LeftIntro}>
         <div className={classes.Col1}>
-          <Image
+          <Image alt="Movie"
             src={`${BASE_IMAGE_URL}${
               movieDetail.poster_path || movieDetail.backdrop_path
             }`}
@@ -67,7 +67,7 @@ export default function MovieDescription({ movieVideos, movieDetail, movieActors
               <li className={classes.FollowBtn}>
                 <a>
                   <span>
-                    <Image src={FavoriteIcon} width={20} />
+                    <Image alt = "Bookmark" src={FavoriteIcon} width={20} />
                   </span>
                   <p>Follow</p>
                 </a>
@@ -76,7 +76,7 @@ export default function MovieDescription({ movieVideos, movieDetail, movieActors
                 <Link href={`https://www.facebook.com/sharer/sharer.php?u=https://youtu.be/${trailerUrl}`}>
                   <a>
                     <span>
-                      <Image src={ShareIcon} />
+                      <Image alt="Share" src={ShareIcon} />
                     </span>
                     <p>Share</p>
                   </a>

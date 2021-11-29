@@ -66,7 +66,7 @@ function Movie({ data, data1, movieId }) {
 
   return (
     <div className={styles.container}>
-      <Image
+      <Image alt="Movie"
         layout="fill"
         className={styles.bgimg}
         src={

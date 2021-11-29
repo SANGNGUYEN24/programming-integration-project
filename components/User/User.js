@@ -49,7 +49,7 @@ export default function User(props) {
       <div className={st.SectionWrapper}>
         <h1 className={st.h1}> Welcome {userName} </h1>
         <p className={st.p}> {userEmail} </p>
-        <Image
+        <Image alt ="Welcome"
           layout="fixed"
           className={st.bgimg}
           src="/footer2.jpg"
@@ -64,7 +64,7 @@ export default function User(props) {
         {movies?.Movie?.map((mov, index) => (
           <div className={st.container} key={index}>
             {/* <Image className={st.item}/> */}
-            <Image
+            <Image alt="Movie"
               layout="responsive"
               className={st.img}
               src={mov?.url}

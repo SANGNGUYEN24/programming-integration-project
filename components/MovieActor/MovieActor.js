@@ -13,7 +13,7 @@ const ActorCard = ({ actorInfo }) => {
   return (
     <div className={classes.MovieCardWrapper}>
       <div>
-        <Image
+        <Image alt="Movie"
           src={`${BASE_IMAGE_URL}${actorInfo.profile_path}`}
           width={180}
           height={180}
