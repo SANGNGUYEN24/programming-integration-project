@@ -4,7 +4,7 @@ import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import App from "next/app";
 import {app,db,auth} from "../utils/firebase_config";
-import UserContext from "./UserContext.js";
+import UserContext from "../utils/UserContext.js";
 import Router from "next/router";
 
 export default class MyApp extends App {

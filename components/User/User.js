@@ -8,7 +8,7 @@ import {
 } from "@firebase/firestore";
 import { useState, useEffect } from "react";
 import { db } from "../../utils/firebase_config.js";
-import UserContext from "../../pages/UserContext.js";
+import UserContext from "../../utils/UserContext.js";
 
 console.log(db);
 export default function User(props) {

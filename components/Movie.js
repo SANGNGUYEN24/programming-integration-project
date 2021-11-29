@@ -14,7 +14,7 @@ import {
   arrayRemove,
 } from "firebase/firestore";
 import { initializeApp } from "firebase/app";
-import UserContext from "../pages/UserContext.js";
+import UserContext from "../utils/UserContext.js";
 import { db } from "../utils/firebase_config";
 //import 'firebase/compat/firestore';
 // console.log(db);

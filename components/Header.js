@@ -4,7 +4,7 @@ import Link from "next/link";
 import logo from "../public/pip-logo.png";
 import { useState, useContext } from "react";
 import { signOut, getAuth } from "firebase/auth";
-import UserContext from "../pages/UserContext.js";
+import UserContext from "../utils/UserContext.js";
 import { useRouter } from "next/router";
 
 function Header() {
