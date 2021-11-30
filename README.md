@@ -1,5 +1,10 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# Movie website
+This is a website helping people to find and watch quality trending movies
 
+See project outcome: https://pip-sigma.vercel.app/
+
+![image](https://user-images.githubusercontent.com/78266241/144077285-fad99340-7ca6-4fa1-be1e-4142543608cc.png)
+---
 ## Getting Started
 
 First, run the development server:
