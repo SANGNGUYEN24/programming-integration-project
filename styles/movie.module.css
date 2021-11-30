@@ -233,13 +233,13 @@
     display:flex;
     flex-flow:column nowrap;
     justify-content:center;
-    width:80%;
+    width:50%;
   }
   
   .detail .btn{
       
       width:100%;
-      font-size: 1.5rem;
+      font-size: 1rem;
       
   }
   .detail .info h1{
