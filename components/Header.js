@@ -31,7 +31,12 @@ function Header() {
           </svg>
         </div>
         <div className={styled.headerBrand}>
-          <Link href="/">
+          <Link
+            href={{
+              pathname: "/",
+              query: { sortType: "popularity.desc" },
+            }}
+          >
             <a className={styled.brand}>
               <img src="/pip-logo.png" />
             </a>

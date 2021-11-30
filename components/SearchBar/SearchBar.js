@@ -32,6 +32,7 @@ const Search = ({ results }) => {
   const [Search, setSearch] = useState("");
   const BASE_URL = "https://image.tmdb.org/t/p/original";
 
+  console.log(results);
   return (
     <div className={styles.SearchWrapper}>
       <div className={styles.Container}>
@@ -50,10 +51,18 @@ const Search = ({ results }) => {
             if (Search == "") return null;
             if (toSlug(result.title).includes(Search))
               return (
-                <Link passHref href="/details">
+                <Link
+                  passHref
+                  href={{
+                    pathname: "/details",
+                    //query:{id:res.id}
+                    query: { object: JSON.stringify(result.id) },
+                  }}
+                >
                   <div className={styles.Card} key={index}>
                     <div className={styles.Image}>
-                      <Image alt="Search"
+                      <Image
+                        alt="Search"
                         src={`${BASE_URL}${result.poster_path}`}
                         width={216}
                         height={324}

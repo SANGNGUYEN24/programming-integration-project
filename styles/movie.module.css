@@ -99,7 +99,7 @@
   display:flex;
   flex-flow:row wrap;
   justify-content:flex-start;
-  align-item:center;
+  /* align-items: center; */
   
 }
 .detail .info .cate .tag{
@@ -147,11 +147,11 @@
 }
 
 .section .list {
-  //background-color:white;
+  /* //background-color:white; */
   width:100%;
   display: flex;
   flex-flow: row nowrap;
-  //justify-content: flex-start;
+  /* //justify-content: flex-start; */
 }
 .detail .info .list .content {
   margin-right: 2rem;
@@ -299,7 +299,7 @@
   }
   .detail .info .originName {
     margin-top:1rem;
-    fonr-size:0.8rem;
+    font-size:0.8rem;
    
   }
   .detail .info .originName span{
@@ -326,7 +326,6 @@
   }
   .detail .info .list .content .subName {
     font-size:12px;
-    width:
   }
 }
 

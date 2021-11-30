@@ -15,7 +15,7 @@ const Thumbnail = ({ results }) => {
         }
         width={1920}
         height={1080}
-        alt={`#`}
+        alt={"The best movie with very high score on Rottens Tomatoes"}
       />
       <div className={style.wrapper}>
         <p className={style.overview}>{results.overview} </p>
@@ -29,7 +29,7 @@ const Thumbnail = ({ results }) => {
         </p>
       </div>
     </div>
-  )
+  );
 };
 
 Thumbnail.displayName = "Thumbnail";

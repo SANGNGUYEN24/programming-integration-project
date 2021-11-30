@@ -119,7 +119,7 @@ function Movie({ data, data1, movieId }) {
               <p className={styles.content}>Adventure</p>
             </div>
             <div className={styles.tag}>
-              <p className={styles.content}>Fantacy</p>
+              <p className={styles.content}>Fantasy</p>
             </div>
             <div className={styles.shareTag}>
               <Link href="https://www.facebook.com/sharer/sharer.php?u=https://youtu.be/ZMeFnwsxh6s">
