@@ -9,8 +9,8 @@ import {
 import { useState, useEffect } from "react";
 import { db } from "../../utils/firebase_config.js";
 import UserContext from "../../utils/UserContext.js";
-
-console.log(db);
+import Link from "next/link";
+// console.log(db);
 export default function User(props) {
   const { userName, userEmail, userUid } = useContext(UserContext);
 
@@ -52,19 +52,29 @@ export default function User(props) {
       <div className={st.playList}>
         {movies?.Movie?.map((mov, index) => (
           <div className={st.container} key={index}>
-            {/* <Image className={st.item}/> */}
-            <Image alt="Movie"
-              layout="responsive"
-              className={st.img}
-              src={mov?.url}
-              width={60}
-              height={40}
-            />
-            <div className={st.content}>
-              <h2 className={st.maincontent}>{mov.name} </h2>
-              <h3 className={st.subcontent}>Rating: {mov.rating}</h3>
-            </div>
+          {/* <Image className={st.item}/> */}
+          <Link
+            href={{
+              pathname: "/details/movies",
+              query: { m: mov.id },
+            }}
+          >
+            <a>
+              <Image
+                alt="Movie"
+                layout="responsive"
+                className={st.img}
+                src={mov?.url}
+                width={60}
+                height={40}
+              />
+            </a>
+          </Link>
+          <div className={st.content}>
+            <h2 className={st.maincontent}>{mov.name} </h2>
+            <h3 className={st.subcontent}>Rating: {mov.rating}</h3>
           </div>
+        </div>
         ))}
       </div>
     </div>

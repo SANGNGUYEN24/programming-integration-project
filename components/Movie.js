@@ -42,6 +42,7 @@ function Movie({ data, data1, movieId }) {
       if (docSnap.exists()) {
         updateDoc(docu, {
           Movie: arrayUnion({
+            id:data.id,
             name: data.title,
             rating: data.vote_average,
             url: `${BASE_URL}${data.poster_path}`,
@@ -51,6 +52,7 @@ function Movie({ data, data1, movieId }) {
         setDoc(doc(db, "bookmarks", userUid), {
           Movie: [
             {
+              id:data.id,
               name: data.title,
               rating: data.vote_average,
               url: `${BASE_URL}${data.poster_path}`,
@@ -80,17 +82,11 @@ function Movie({ data, data1, movieId }) {
         {/* phan poster */}
         <div className={styles.poster}>
           {/* <img className={styles.img} src="/poster.jpg" /> */}
-          <Image
-            className={styles.img}
-            layout="responsive"
-            src={
-              `${BASE_URL}${data.backdrop_path || data.poster_path}` ||
-              `${BASE_URL}${data.poster_path}`
-            }
-            width={240}
-            height={300}
-            alt={`#`}
-          />
+          <img alt="movie details is good" className={styles.img} src={
+              `${BASE_URL}${data.poster_path}`||
+              `${BASE_URL}${data.backdrop_path || data.poster_path}` 
+             
+            } />
 
           <Link
             href={{

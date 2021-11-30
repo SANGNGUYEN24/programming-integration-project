@@ -3,14 +3,31 @@
 .SectionWrapper{
     margin-top:10rem;
     z-index: 0;
-    width:100%;
+    width:100vw;
     margin:0 auto;
     height:20rem;
+    filter:brightness(1.1);
     //background-color: rgb(56, 111, 179);
     position:absolute;
-
+    @include mobile{
+        width:100%;
+        height:16rem;
+        margin-top:52rem;
+    }
+    
+    @include tablet{
+        
+        width:100%;
+        height:16rem;
+        margin-top:16rem;
+    }
+    @include laptop{
+        height:20rem;
+        width:100%;
+        margin-top:8rem;
+    }
     .bgimg {
-   
+        width:100%;
         opacity:0.4;
         height: 100%;
         object-fit: cover;
@@ -18,24 +35,23 @@
     }
 
     .content{
-        
         margin:auto;
         color:rgb(211, 211, 211);
         padding:1rem;
         position:absolute;
         font-size:1rem;
         @include mobile{
-            top:1rem;
-            font-size:14px;
-            width:80%;
-            padding:2rem;
+            top:10px;
+            font-size:10px;
+            width:100%;
             margin:auto;
             left:1.25rem;
+            padding:1rem;
         }
         @include tablet{
             top:1rem;
-            font-size:1.5rem;
-            width:90%;
+            font-size:0.75rem;
+            width:100%;
             padding:2rem;
             margin:auto;
             left:2.25rem;
@@ -51,7 +67,7 @@
         }
         
         .li{
-            
+
             margin-top:12px;
             
         }

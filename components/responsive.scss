@@ -8,7 +8,9 @@ $desktop-width: 1200px;
     @content;
   }
 }
-
+// @mixin testing{
+//   @media(min-width)
+// }
 @mixin tablet {
   @media (min-width: #{$tablet-width}) {
     @content;
