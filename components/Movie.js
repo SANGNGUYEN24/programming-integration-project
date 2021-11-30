@@ -27,6 +27,7 @@ function Movie({ data, data1, movieId }) {
   // console.log(useContext(UserContext));
   let [cast1, cast2, cast3] = data1.cast;
   let company = data.production_companies[0];
+  console.log(data)
   const BASE_URL = "https://image.tmdb.org/t/p/original";
   // console.log(db);
   // const Blog = db.collection('BlogTest');
@@ -37,11 +38,12 @@ function Movie({ data, data1, movieId }) {
     // console.log(typeof userUid);
     const docu = doc(db, "bookmarks", userUid);
     const docSnap = await getDoc(docu);
-
+    
     try {
       if (docSnap.exists()) {
         updateDoc(docu, {
           Movie: arrayUnion({
+            id:data.id,
             name: data.title,
             rating: data.vote_average,
             url: `${BASE_URL}${data.poster_path}`,
@@ -51,6 +53,7 @@ function Movie({ data, data1, movieId }) {
         setDoc(doc(db, "bookmarks", userUid), {
           Movie: [
             {
+              id:data.id,
               name: data.title,
               rating: data.vote_average,
               url: `${BASE_URL}${data.poster_path}`,
@@ -67,30 +70,35 @@ function Movie({ data, data1, movieId }) {
   return (
     <div className={styles.container}>
       <Image alt="Movie"
-        layout="fill"
+        layout="fixed"
         className={styles.bgimg}
         src={
-          `${BASE_URL}${data.backdrop_path || data.poster_path}` ||
-          `${BASE_URL}${data.poster_path}`
+          
+          `${BASE_URL}${data.backdrop_path || data.poster_path}` ||`${BASE_URL}${data.poster_path}`
         }
-        width={200}
-        height={400}
+        width={1400}
+        height={440}
       />
       <div className={styles.detail}>
         {/* phan poster */}
         <div className={styles.poster}>
-          {/* <img className={styles.img} src="/poster.jpg" /> */}
-          <Image
+          <img className={styles.img} src={
+              `${BASE_URL}${data.poster_path}`||
+              `${BASE_URL}${data.backdrop_path || data.poster_path}` 
+             
+            } />
+          {/* <Image  
             className={styles.img}
-            layout="responsive"
+            layout="fixed"
             src={
-              `${BASE_URL}${data.backdrop_path || data.poster_path}` ||
-              `${BASE_URL}${data.poster_path}`
+              `${BASE_URL}${data.poster_path}`||
+              `${BASE_URL}${data.backdrop_path || data.poster_path}` 
+             
             }
-            width={240}
+            width={200}
             height={300}
             alt={`#`}
-          />
+          /> */}
 
           <Link
             href={{
@@ -99,7 +107,7 @@ function Movie({ data, data1, movieId }) {
             }}
           >
             <a>
-              <button className={styles.btn}>Watch movie</button>
+              <button className={styles.btn} >Watch movie</button>
             </a>
           </Link>
           {userName ? (
@@ -147,7 +155,9 @@ function Movie({ data, data1, movieId }) {
               Release Date: <span>{data.release_date}</span>
             </p>
           </div>
-          <div className={styles.descript}>{data.overview}</div>
+          <div className={styles.descript}>
+            {data.overview} <br></br>
+            The conversation between the main characters is simple, yet at the same time full of life lessons.</div>
           {/* List actor */}
           <div className={styles.section}>
             <p className={styles.sectionTitle}>Main actors</p>
@@ -157,8 +167,8 @@ function Movie({ data, data1, movieId }) {
                   layout="fixed"
                   className={styles.actorImg}
                   src={`${BASE_URL}${cast1.profile_path}`}
-                  width={120}
-                  height={120}
+                  width={100}
+                  height={100}
                   alt={`#`}
                 />
                 <p className={styles.actorName}> {cast1?.name}</p>
@@ -169,8 +179,8 @@ function Movie({ data, data1, movieId }) {
                   layout="fixed"
                   className={styles.actorImg}
                   src={`${BASE_URL}${cast2.profile_path}`}
-                  width={120}
-                  height={120}
+                  width={100}
+                  height={100}
                   alt={`#`}
                 />
                 <p className={styles.actorName}> {cast2?.name}</p>
@@ -181,47 +191,17 @@ function Movie({ data, data1, movieId }) {
                   layout="fixed"
                   className={styles.actorImg}
                   src={`${BASE_URL}${cast3.profile_path}`}
-                  width={120}
-                  height={120}
+                  width={100}
+                  height={100}
                   alt={`#`}
                 />
                 <p className={styles.actorName}> {cast3?.name} </p>
                 <p className={styles.subName}> {cast3?.character}</p>
               </div>
+
             </div>
           </div>
 
-          {/* List Movie */}
-
-          {/* <div className={styles.section}>
-            <p className={styles.sectionTitle}>Phim tương tự</p>
-            <div className={styles.list}>
-              <div className={styles.content}>
-                <img
-                  className={styles.movieImg}
-                  src="https://dummyimage.com/400x400"
-                />
-                <p className={styles.MoiveName}> HP Chap1</p>
-                <p className={styles.subName}> 2018 </p>
-              </div>
-              <div className={styles.content}>
-                <img
-                  className={styles.movieImg}
-                  src="https://dummyimage.com/400x400"
-                />
-                <p className={styles.MoiveName}> HP Chap1</p>
-                <p className={styles.subName}> 2018 </p>
-              </div>
-              <div className={styles.content}>
-                <img
-                  className={styles.movieImg}
-                  src="https://dummyimage.com/400x400"
-                />
-                <p className={styles.MoiveName}> HP Chap1</p>
-                <p className={styles.subName}> 2018 </p>
-              </div>
-            </div>
-          </div> */}
         </div>
       </div>
     </div>

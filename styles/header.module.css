@@ -1,17 +1,17 @@
-.header a img{
-  height: 30px;
-  width: 60px;
-}
+
 
 .header {
     display: flex;
     align-items: stretch;
-    background-color: transparent;
+    background-color: #181D31;
     /* margin-bottom: 10px; */
     height: auto;
     
   }
-
+  .header a img{
+    height: 30px;
+    width: 60px;
+  }
 .header .headerBrand{
     display: flex;
     flex-shrink: 0;

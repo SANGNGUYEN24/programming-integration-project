@@ -1,3 +1,4 @@
+
 .container {
   position: relative;
   width: 100%;
@@ -5,6 +6,7 @@
   display: flex;
   justify-content: center;
   margin-bottom:100vh;
+  
 }
 .container .bgimg {
   width: 100%;
@@ -14,9 +16,9 @@
   
 }
 .detail {
-  top: 11rem;
+  top: 12rem;
   width: 80%;
-  padding: 1rem 4rem;
+  padding: 1rem 3rem;
   margin: auto;
   height: auto;
   position: absolute;
@@ -29,14 +31,16 @@
   display: flex;
   flex-flow: column nowrap;
   justify-content: flex-start;
-  width: 240px;
-  
+  width: 26%;
+  align-content:center;
   object-fit:cover;
+
 }
 .detail .poster .img {
   margin-bottom: 2rem;
   height: auto;
   max-width: 100%;
+  width:100%;
   
 }
 
@@ -53,8 +57,11 @@
   background-color: #dd003f;
   border-radius: 4px;
 }
+
 .detail .btn:hover {
   filter: brightness(110%);
+  
+
 }
 .info {
   width: 70%;
@@ -90,11 +97,13 @@
 
 .detail .info .cate {
   display:flex;
-  flex-flow:row nowrap;
+  flex-flow:row wrap;
   justify-content:start;
   align-item:center;
+  
 }
 .detail .info .cate .tag{
+ 
   border:white;
   border-radius:4px;
   height:2.5rem;
@@ -104,31 +113,53 @@
   border:2px solid;
   margin-right:1rem;
   margin-bottom:2rem;
+  
 }
 .detail .info .cate .tag:hover{
   background-color:#4750E5;
   color:white;
+  cursor: pointer;
 }
 
 .detail .info .originName {
+  font-size:1rem;
   color: white;
   margin-bottom: 8px;
+  font-weight: normal;
+}
+.detail .info .originName span{
+  font-size:1.2rem;
+  
+  color: #FBD148;
+  margin-bottom: 8px;
+  font-weight: bold;
 }
 .detail .info .descript {
   color: white;
   margin-bottom: 1rem;
+  margin-top:0.5rem;
+  font-size:1rem;
+  width:100%;
 }
-.detail .info .descript span {
-  font-size: 1.5rem;
-  font-weight: bold;
+.section{
+  margin-top:2rem;
+  width:100%;
 }
 
+.section .list {
+  //background-color:white;
+  width:100%;
+  display: flex;
+  flex-flow: row nowrap;
+  //justify-content: flex-start;
+}
 .detail .info .list .content {
   margin-right: 2rem;
   display: flex;
-  width: 10rem;
+  width: 8rem;
   height: auto;
   flex-flow: column nowrap;
+  align-items:center;
   justify-content: flex-start;
   text-align: center;
   padding: 4px;
@@ -140,6 +171,7 @@
   object-fit: cover;
   border-radius: 100%;
   margin-bottom: 1rem;
+  
 }
 .detail .info .section .sectionTitle {
   font-size: 1.4rem;
@@ -147,11 +179,7 @@
   color: yellow;
   margin-bottom: 0.5rem;
 }
-.detail .info .list {
-  display: flex;
-  flex-flow: row nowrap;
-  justify-content: flex-start;
-}
+
 .detail .info .list .content .actorName {
   width: 100%;
   font-weight: bold;
@@ -209,45 +237,126 @@
   color: #fff;
 }
 
-@media only screen and (max-width: 768px) {
-  /* For mobile phones: */
+
+@media only screen and (min-width:200px) and (max-width:700px){
   .container{
+    height:200%;
     width:100%;
-    max-width:1250px;
+    height:4rem;
   }
   .detail{
-    top:11rem;
-    width:100%;
-    padding:1rem 2rem;
-      
-    flex-direction: column;
-    flex-flow:row wrap;
-    justify-content:center;
-  } 
-  .detail .poster .img {
-    height: auto;
-    max-width: 10%;
-    /* position: fixed; */
+    top:6rem;
+    padding:0rem;
+    align-items:center;
   }
   .detail .poster{
+    width:60%;
+    align-content:center;
+
+  }
+  .detail .poster .img {
+   object-fit:cover; 
+   width:100%;
+  }
+  .detail .btn{
+    height:2.2rem;
+    font-size:10px;
+    width:90%;
+  }
+  .detail {
     display:flex;
     flex-flow:column nowrap;
-    justify-content:center;
-    width:50%;
   }
-  
-  .detail .btn{
-      
-      width:100%;
-      font-size: 1rem;
-      
+  .info{
+    width:100%;
+    align-content:center;
+    padding: 0px 0px 0px 0px;
   }
   .detail .info h1{
-    padding-top: 30px;
-    width: 100%;
-    font-size:2.2rem;
+    font-size:1.7rem;
+    font-weight: bold;
+    margin-bottom:1rem;
+    margin-top:1rem;
   }
   .detail .info h2{
-    font-size: 1.5rem;
+    display:none;
   }
+  .detail .info .cate {
+    width:11rem;
+  }
+  .detail .info .cate .tag{
+    border-radius:3px;
+    height:2.5rem;
+    width:46%;
+    padding:4px;
+    padding-top:6px;
+    margin-right:4px;
+    margin-bottom:8px;
+  }
+  .detail .info .descript {
+    font-size:0.8rem;
+    line-height:1.7;
+  }
+  .detail .info .originName {
+    margin-top:1rem;
+    fonr-size:0.8rem;
+   
+  }
+  .detail .info .originName span{
+    font-size:1rem;
+   
+  }
+  .section .list{
+    width:100%;
+  }
+  .detail .info .list .content {
+    width:30%;
+    margin-right: 1rem;
+  }
+  .detail .info .list .content .actorImg {
+    width:120px;
+    height:120px;
+    margin-left: 10px;
+    object-fit: cover;
+    border-radius: 100%;
+    margin-bottom: 1rem;
+  }
+  .detail .info .list .content .actorName {
+    font-size:12px;
+  }
+  .detail .info .list .content .subName {
+    font-size:12px;
+    width:
+  }
+}
+
+@media only screen and (min-width:700px) and(max-width:850px){
+  
+  .detail{
+    width:90%;
+    flex-flow: row nowrap;
+    justify-content: flex-startstart;
+    align-content:flex-start;
+  }
+  .info{
+    width:50%
+  }
+  .detail .poster{
+    width:40%;
+    flex-flow:column nowrap;
+    
+  }
+    .detail .poster .img {
+   
+   width:200%;
+  }
+  .section .list{
+    width:100%;
+    background-color:blue;
+  }
+  .detail .info .list .content {
+    width:20%;
+    margin-right:0.5rem;
+  }
+  
 }

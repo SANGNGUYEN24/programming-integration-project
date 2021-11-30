@@ -2,6 +2,7 @@ import React from "react";
 import Movie from "../../components/Movie";
 import Header from "../../components/Header";
 import Footer from "../../components/Footer/Footer";
+import styles from "../../styles/movie.module.css";
 import { withRouter } from "next/router";
 
 export async function getServerSideProps(context) {
@@ -36,13 +37,13 @@ export async function getServerSideProps(context) {
 
 function About({ data, data1, movieId }) {
   return (
-    <div>
+    <>
       <Header />
-
-      <Movie data={data} data1={data1} movieId={movieId} />
+     
+      <Movie data={data} data1={data1} movieId={movieId} /> 
 
       <Footer />
-    </div>
+    </>
   );
 }
 

@@ -2,14 +2,11 @@ import React from "react";
 import Image from "next/image";
 import st from "./UserProfile.module.scss";
 import { useContext } from "react";
-import {
-  doc,
-  onSnapshot,
-} from "@firebase/firestore";
+import { doc, onSnapshot } from "@firebase/firestore";
 import { useState, useEffect } from "react";
 import { db } from "../../utils/firebase_config.js";
 import UserContext from "../../utils/UserContext.js";
-
+import Link from "next/link";
 console.log(db);
 export default function User(props) {
   const { userName, userEmail, userUid } = useContext(UserContext);
@@ -38,7 +35,8 @@ export default function User(props) {
       <div className={st.SectionWrapper}>
         <h1 className={st.h1}> Welcome {userName} </h1>
         <p className={st.p}> {userEmail} </p>
-        <Image alt ="Welcome"
+        <Image
+          alt="Welcome"
           layout="fixed"
           className={st.bgimg}
           src="/footer2.jpg"
@@ -53,13 +51,23 @@ export default function User(props) {
         {movies?.Movie?.map((mov, index) => (
           <div className={st.container} key={index}>
             {/* <Image className={st.item}/> */}
-            <Image alt="Movie"
-              layout="responsive"
-              className={st.img}
-              src={mov?.url}
-              width={60}
-              height={40}
-            />
+            <Link
+              href={{
+                pathname: "/details/movies",
+                query: { m: mov.id },
+              }}
+            >
+              <a>
+                <Image
+                  alt="Movie"
+                  layout="responsive"
+                  className={st.img}
+                  src={mov?.url}
+                  width={60}
+                  height={40}
+                />
+              </a>
+            </Link>
             <div className={st.content}>
               <h2 className={st.maincontent}>{mov.name} </h2>
               <h3 className={st.subcontent}>Rating: {mov.rating}</h3>

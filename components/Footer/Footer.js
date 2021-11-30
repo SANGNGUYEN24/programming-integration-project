@@ -10,6 +10,8 @@ export default function Footer() {
         className={st.bgimg}
         src="/footer_background.jpg"
         alt={`#`}
+        
+
       />
       <div className={st.content}>
         How is PIP online high quality movie different from other movie
