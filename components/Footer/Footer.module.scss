@@ -1,6 +1,7 @@
 @import "../responsive.scss"
 ;
 .SectionWrapper{
+    overflow-x: hidden;
     margin-top:10rem;
     z-index: 0;
     width:100vw;
