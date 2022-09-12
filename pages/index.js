@@ -44,6 +44,10 @@ export default function Home({ results }) {
           name="description"
           content="Welcome to the PIP - an storage of many interesting movies with all genres from around the world. This will bring you to an amazing experience movie watching"
         />
+        <meta
+          name="google-site-verification"
+          content="Aw4NdgzsoXkFj5JA60vylU3ZH-4OUjUF2rfCPXFI9rE"
+        />
       </Head>
 
       <Header />
