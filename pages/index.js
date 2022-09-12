@@ -48,6 +48,10 @@ export default function Home({ results }) {
           name="google-site-verification"
           content="Aw4NdgzsoXkFj5JA60vylU3ZH-4OUjUF2rfCPXFI9rE"
         />
+        <meta
+          name="ahrefs-site-verification"
+          content="38d3ffc779d6095e6bc0c12857d85c1608ecab8b579a1d6175af1463c70e1081"
+        />
       </Head>
 
       <Header />
